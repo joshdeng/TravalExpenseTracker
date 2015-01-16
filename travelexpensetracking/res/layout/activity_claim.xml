@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-     android:orientation="vertical" 
+    android:orientation="vertical" 
     tools:context="ca.ualberta.cs.travelexpensetracking.ClaimActivity" >
 
      <LinearLayout
@@ -59,7 +59,7 @@
     </EditText>
         
 	    <Button
-	        android:id="@+id/AddClaimButton"
+	        android:id="@+id/addExpenseButton"
 	        style="?android:attr/buttonStyleSmall"
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
