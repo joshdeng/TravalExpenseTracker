@@ -35,14 +35,23 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int ClaimText=0x7f090002;
-        public static final int ClaimsTextView1=0x7f090004;
-        public static final int action_settings=0x7f090007;
-        public static final int addClaimButton=0x7f090006;
-        public static final int addExpenseButton=0x7f090003;
-        public static final int datePicker1=0x7f090001;
-        public static final int listView1=0x7f090005;
-        public static final int textView1=0x7f090000;
+        public static final int ClaimText=0x7f09000b;
+        public static final int ClaimsTextView1=0x7f09000d;
+        public static final int action_settings=0x7f090010;
+        public static final int addClaimButton=0x7f09000f;
+        public static final int addExpenseButton=0x7f09000c;
+        public static final int buttonNewExpenseCancle=0x7f090008;
+        public static final int buttonNewExpenseDone=0x7f090009;
+        public static final int editTextAmoutnSpend=0x7f090005;
+        public static final int editTextCategory=0x7f090004;
+        public static final int editTextDate=0x7f090003;
+        public static final int editTextDescription=0x7f090007;
+        public static final int editTextUnitOfCurrency=0x7f090006;
+        public static final int expenseScrollView=0x7f090001;
+        public static final int listView1=0x7f09000e;
+        public static final int textView1=0x7f09000a;
+        public static final int textViewExpenseName=0x7f090000;
+        public static final int textViewNewExpensePrompt=0x7f090002;
     }
     public static final class layout {
         public static final int activity_add_expense=0x7f030000;
@@ -59,10 +68,20 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
-        public static final int claims=0x7f060005;
-        public static final int plus_sign=0x7f060006;
+        public static final int button_cancle=0x7f060010;
+        public static final int button_done=0x7f06000f;
+        public static final int button_text_plus_sign=0x7f060006;
+        public static final int prompt_amount_spend=0x7f06000b;
+        public static final int prompt_category=0x7f060009;
+        public static final int prompt_date=0x7f060008;
+        public static final int prompt_descriptoion=0x7f06000a;
+        public static final int prompt_expense_name=0x7f060007;
+        public static final int prompt_new_claim_name=0x7f06000e;
+        public static final int prompt_new_expemse=0x7f06000d;
+        public static final int prompt_unit_of_currency=0x7f06000c;
         public static final int title_activity_add_expense=0x7f060003;
         public static final int title_activity_claim=0x7f060002;
+        public static final int title_activity_claims=0x7f060005;
         public static final int title_activity_email_claim=0x7f060004;
     }
     public static final class style {

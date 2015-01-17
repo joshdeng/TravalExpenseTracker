@@ -13,28 +13,27 @@
         android:background="@color/skyblue"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="6"
+        android:layout_weight="13.5"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/ClaimsTextView1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-       		android:layout_marginLeft="10dp"
-            android:gravity="center|left"
-            android:text="@string/claims"
+
+            android:gravity="center"
+            android:text="@string/title_activity_claims"
             android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:textSize="35sp" />
 
     </LinearLayout>
     
 	    <LinearLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
-	        android:layout_weight="2"
-	        android:orientation="vertical" 
-	        
-	        >
+	        android:layout_weight="4"
+	        android:background="@color/white"
+	        android:orientation="vertical" >
 
 	        <ListView
 	            android:id="@+id/listView1"
@@ -48,21 +47,26 @@
         android:background="@color/skyblue"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="6"
+        android:layout_weight="14"
         android:orientation="horizontal" >
         
 		<EditText
-        android:id="@+id/ClaimText"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-		android:gravity="center"
-		android:layout_marginLeft="7dp"
-	    android:layout_marginRight="7dp"
-	    android:layout_marginTop="9dp"
-	    android:layout_marginBottom="7dp"
-		android:layout_gravity="center"
- 		android:layout_weight="2"
-        android:ems="10" >
+		    android:id="@+id/ClaimText"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:layout_gravity="center"
+		    android:layout_marginBottom="7dp"
+		    android:layout_marginLeft="7dp"
+		    android:layout_marginRight="7dp"
+		    android:layout_marginTop="9dp"
+		    android:layout_weight="2"
+		    android:background="@color/white"
+		    android:ems="10"
+		    android:gravity="center|left"
+		    android:hint="@string/prompt_new_claim_name"
+		    android:textColor="@color/darkblue"
+		    android:textColorLink="@color/darkblue"
+		    android:textSize="20sp" >
 
         <requestFocus />
     </EditText>
@@ -73,16 +77,17 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
 	        android:layout_gravity="center"
+	        android:layout_marginBottom="7dp"
 	        android:layout_marginLeft="7dp"
-		    android:layout_marginRight="7dp"
-		    android:layout_marginTop="9dp"
-		    android:layout_marginBottom="7dp"
+	        android:layout_marginRight="7dp"
+	        android:layout_marginTop="7dp"
 	        android:layout_weight="7"
+	        android:background="@color/skyblue"
 	        android:foreground="@color/white"
-	        android:text="@string/plus_sign"
 	        android:gravity="center"
-	        android:textSize="20dp"
-	        android:textColor="@color/white" />
+	        android:text="@string/button_text_plus_sign"
+	        android:textColor="@color/white"
+	        android:textSize="35sp" />
 
     </LinearLayout>
 
