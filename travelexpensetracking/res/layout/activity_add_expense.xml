@@ -14,7 +14,7 @@
         android:background="@color/skyblue"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="13.5"
+        android:layout_weight="100"
         android:orientation="horizontal" >
 
         <TextView
@@ -35,7 +35,7 @@
 	        android:layout_marginLeft="7dp"
 	        android:layout_marginRight="7dp"
 	        android:layout_marginTop="9dp"
-	        android:layout_weight="4"
+	        android:layout_weight="20"
 	        android:background="@color/white"
 	        android:orientation="vertical" >
 
@@ -189,7 +189,7 @@
         android:background="@color/skyblue"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="14"
+        android:layout_weight="100"
         android:orientation="horizontal" >
 
         <Button
