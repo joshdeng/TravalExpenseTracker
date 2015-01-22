@@ -11,7 +11,9 @@ public class ClaimList {
 	
 	// constructor
 	public ClaimList(){
-		this.claimList = new ArrayList<Claim>();	
+		this.claimList = new ArrayList<Claim>();
+		this.totalSumList = new ArrayList<Integer>();
+		this.totalUnitList = new ArrayList<String>();
 	}
 
 	

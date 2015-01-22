@@ -7,15 +7,30 @@
     <string name="title_activity_add_expense">AddExpenseActivity</string>
     <string name="title_activity_email_claim">EmailClaim</string>
     <string name="title_activity_claims">Claims</string>
- 	<string name="button_text_plus_sign">+</string>
- 	<string name="prompt_expense_name">New  Expense Name</string>
- 	<string name="prompt_date">  Date: (DD-MM-YYYY)</string>
- 	<string name="prompt_category">  Category:</string>
- 	<string name="prompt_descriptoion">  Description:</string>
- 	<string name="prompt_amount_spend">  Amount Spend:</string>
- 	<string name="prompt_unit_of_currency">  Unit:</string>
- 	<string name="prompt_new_expemse">New Expense:</string>
- 	<string name="prompt_new_claim_name">New Claim Name:</string>
- 	<string name="button_done">Done</string>
- 	<string name="button_cancle">Cancle</string>
+    <string name="button_text_plus_sign">+</string>
+    <string name="prompt_name">Name:</string>
+    <string name="prompt_date">  Date: (DD-MM-YYYY)</string>
+    <string name="prompt_category">  Category:</string>
+    <string name="prompt_descriptoion">  Description:</string>
+    <string name="prompt_amount_spend">  Amount Spend:</string>
+    <string name="prompt_unit_of_currency">  Unit:</string>
+    <string name="prompt_new_expemse">New Expense:</string>
+    <string name="prompt_new_claim_name">New Claim Name:</string>
+    <string name="button_done">Done</string>
+    <string name="button_cancle">Cancle</string>
+    <string name="new_expense">New Expense</string>
+    <string name="title_activity_add_claim">AddClaimActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="prompt_expense_name">New Expense Name:</string>
+    <string name="new_claim">New Claim</string>
+    <string name="prompt_status">Status:</string>
+    <string name="prompt_start_date">Start Date:</string><string name="prompt_end_date">End Date:</string>
+    
+    <string name="prompt_day">DD</string>
+    <string name="prompt_month">MM</string>
+    <string name="prompt_expense_year">YYYY  (Date)</string>
+    <string name="prompt_claim_start_year">YYYY  (Start)</string>
+    <string name="prompt_claim_end_year">YYYY  End</string>
+    <string name="text_view_email">Target Email Address:</string>
+
 </resources>
