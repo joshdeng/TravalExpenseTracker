@@ -17,8 +17,13 @@ import android.widget.TextView;
 public class ClaimListAdapter extends ArrayAdapter<Claim> {
 	
 
-	public ClaimListAdapter(Context context, ArrayList<Claim> users) {
-	       super(context, 0, users);
+	private Context context;
+	private ArrayList<Claim> ClaimList;
+
+	public ClaimListAdapter(Context context, ArrayList<Claim> ClaimList) {
+	       super(context, 0, ClaimList);
+	       this.context = context;
+	       this.ClaimList=ClaimList;
   }
 
 	@Override

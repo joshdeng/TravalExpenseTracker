@@ -13,10 +13,14 @@ import java.util.ArrayList;
 
 
 
+
+
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -28,6 +32,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -38,8 +43,8 @@ public class MainActivity extends Activity {
 	private EditText EditTextAddClaim;
 	private String newClaimName;
 	private ListView ClaimListView;
-	
-	
+	private int onLongClickPos;
+	private ClaimListAdapter claimListAdapter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +88,7 @@ public class MainActivity extends Activity {
 		Claims = this.loadFromFile();	
 		
 		// set claim list with adapter
-		ClaimListAdapter claimListAdapter = new ClaimListAdapter (this, Claims.getClaimList());
+		claimListAdapter = new ClaimListAdapter (this, Claims.getClaimList());
 		ClaimListView.setAdapter(claimListAdapter);
 		
 		
@@ -105,7 +110,80 @@ public class MainActivity extends Activity {
 				
 			}});
 		
+		
+		// set list item on long click listener
+		
+		ClaimListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+			@Override
+			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+				// save position
+				onLongClickPos = position;
+			    // create a dialog
+				final Dialog dialog = new Dialog(MainActivity.this);
+				dialog.setContentView(R.layout.claim_dialog);
+				// set title as claim name
+				dialog.setTitle(Claims.getClaimList().get(position).getClaimName());
+				// get dialog content object
+				Button buttonEmailClaimDialog = (Button) dialog.findViewById(R.id.buttonCancleEmailDialog);
+				Button buttonEditClaimDialog = (Button) dialog.findViewById(R.id.buttonEditClaimDialog);
+				Button buttonRemoveClaimDialog = (Button) dialog.findViewById(R.id.buttonRemoveClaimDialog);
+				dialog.show();
+				
+				
+				
+				buttonRemoveClaimDialog.setOnClickListener(new View.OnClickListener() {	
+				@Override
+				public void onClick(View v) {
+					Claims.getClaimList().remove(onLongClickPos);
+					saveInFile();
+					//onLongClickPos = 0;
+
+					dialog.dismiss();
+				  }
+				}
+				);
+				
+				
+				
+				
+			
+				/*
+				// test: Claim clickedObj = (Claim)parent.getItemAtPosition(position);
+			  
+			    // jump to the target Claim object
+			    Intent intentEnterClaim = new Intent();
+			    // save claim id
+				intentEnterClaim.putExtra("claimID", Integer.toString(position));
+				// save in file
+				saveInFile();
+				// jump to the target Claim object
+				intentEnterClaim.setClass(MainActivity.this, ClaimActivity.class);
+				MainActivity.this.startActivity(intentEnterClaim);
+				*/
+				return true;
+				
+				
+			}});
+		
+		
+		
+		
+		
 	}
+	
+	@Override
+	protected void onResume(){
+		 super.onResume();
+		 Claims = loadFromFile();
+		 //Claims = loadFromFile();
+		 claimListAdapter.addAll(Claims.getClaimList());
+		 claimListAdapter.notifyDataSetChanged();
+		 
+	}
+	
+	
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

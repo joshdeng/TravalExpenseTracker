@@ -37,5 +37,6 @@
     <string name="button_text_remove">Remove</string>
     <string name="button_text_edit">Edit</string>
     <string name="button_text_cancel">Cancel</string>
+    <string name="button_text_email">Email</string>
 
 </resources>
