@@ -53,6 +53,12 @@
             android:name=".ClaimListAdapter"
             android:label="@string/title_activity_claim_list_adapter" >
         </activity>
+        <activity
+            android:name=".EditClaimActivity"
+            android:label="@string/title_activity_edit_claim"
+            android:theme="@android:style/Theme.Light.NoTitleBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" >
+        </activity>
     </application>
 
 </manifest>

@@ -112,7 +112,7 @@ public class MainActivity extends Activity {
 		
 		
 		// set list item on long click listener
-		
+		// 
 		ClaimListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
 			@Override
@@ -135,35 +135,50 @@ public class MainActivity extends Activity {
 				buttonRemoveClaimDialog.setOnClickListener(new View.OnClickListener() {	
 				@Override
 				public void onClick(View v) {
+					// save removed claim list
 					Claims.getClaimList().remove(onLongClickPos);
 					saveInFile();
+					// reload list view
 					claimListAdapter.clear();
 					Claims = loadFromFile();
 					claimListAdapter.addAll(Claims.getClaimList());
 					claimListAdapter.notifyDataSetChanged();
-					//onLongClickPos = 0;
+					// dismiss dialog
 					dialog.dismiss();
 				  }
 				}
 				);
 				
 				
+				buttonEmailClaimDialog.setOnClickListener(new View.OnClickListener() {	
+					@Override
+					public void onClick(View v) {
+						// create intent
+						Intent intentEmail = new Intent();
+						// save claim id into tent
+						intentEmail.putExtra("claimID",String.valueOf(onLongClickPos));
+						// jump to email activity
+						intentEmail.setClass(MainActivity.this, EmailClaim.class);
+						MainActivity.this.startActivity(intentEmail);
+					  }
+					}
+					);
+				
+				buttonEditClaimDialog.setOnClickListener(new View.OnClickListener() {	
+					@Override
+					public void onClick(View v) {
+						// create intent
+						Intent intentEdit = new Intent();
+						// save claim id into tent
+						intentEdit.putExtra("claimID",String.valueOf(onLongClickPos));
+						// jump to email activity
+						intentEdit.setClass(MainActivity.this, EditClaimActivity.class);
+						MainActivity.this.startActivity(intentEdit);
+					  }
+					}
+					);
 				
 				
-			
-				/*
-				// test: Claim clickedObj = (Claim)parent.getItemAtPosition(position);
-			  
-			    // jump to the target Claim object
-			    Intent intentEnterClaim = new Intent();
-			    // save claim id
-				intentEnterClaim.putExtra("claimID", Integer.toString(position));
-				// save in file
-				saveInFile();
-				// jump to the target Claim object
-				intentEnterClaim.setClass(MainActivity.this, ClaimActivity.class);
-				MainActivity.this.startActivity(intentEnterClaim);
-				*/
 				return true;
 				
 				

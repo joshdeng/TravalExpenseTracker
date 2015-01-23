@@ -38,5 +38,6 @@
     <string name="button_text_edit">Edit</string>
     <string name="button_text_cancel">Cancel</string>
     <string name="button_text_email">Email</string>
+    <string name="title_activity_edit_claim">EditClaimActivity</string>
 
 </resources>
