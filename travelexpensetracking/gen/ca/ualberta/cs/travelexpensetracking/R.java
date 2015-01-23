@@ -38,20 +38,25 @@ public final class R {
         public static final int ClaimScrollView=0x7f090001;
         public static final int ClaimText=0x7f090024;
         public static final int EditTextAddExpenseName=0x7f09001b;
-        public static final int TextViewClaimDate=0x7f090027;
-        public static final int TextViewClaimName=0x7f090026;
-        public static final int TextViewClaimStatus=0x7f090028;
+        public static final int TextViewClaimDate=0x7f09002b;
+        public static final int TextViewClaimName=0x7f09002a;
+        public static final int TextViewClaimStatus=0x7f09002c;
         public static final int TextViewClaimTitle=0x7f090022;
+        public static final int TextViewExpenseCurrency=0x7f09002e;
+        public static final int TextViewExpenseName=0x7f09002d;
         public static final int TitleClaimName=0x7f090019;
-        public static final int action_settings=0x7f090029;
+        public static final int action_settings=0x7f09002f;
         public static final int addClaimButton=0x7f090025;
         public static final int addExpenseButton=0x7f09001c;
+        public static final int buttonCancleClaimDialog=0x7f090027;
+        public static final int buttonEditClaimDialog=0x7f090028;
         public static final int buttonEmailCancle=0x7f090020;
         public static final int buttonEmailDone=0x7f090021;
         public static final int buttonNewClaimCancle=0x7f09000b;
         public static final int buttonNewClaimDone=0x7f09000c;
         public static final int buttonNewExpenseCancle=0x7f090017;
         public static final int buttonNewExpenseDone=0x7f090018;
+        public static final int buttonRemoveClaimDialog=0x7f090029;
         public static final int editTextClaimDescription=0x7f09000a;
         public static final int editTextClaimEndDateDay=0x7f090006;
         public static final int editTextClaimEndDateMonth=0x7f090007;
@@ -69,10 +74,11 @@ public final class R {
         public static final int editTextExpenseDescription=0x7f090016;
         public static final int editTextExpenseName=0x7f09000f;
         public static final int editTextExpenseUnitOfCurrency=0x7f090015;
-        public static final int editTextStatus=0x7f090009;
         public static final int expenseScrollView=0x7f09000e;
         public static final int listViewClaim=0x7f090023;
         public static final int listViewExpense=0x7f09001a;
+        public static final int spinnerStatus=0x7f090009;
+        public static final int textClaimDialog=0x7f090026;
         public static final int textView1=0x7f09001d;
         public static final int textViewClaimName=0x7f090000;
         public static final int textViewEmailAddress=0x7f09001e;
@@ -84,8 +90,10 @@ public final class R {
         public static final int activity_claim=0x7f030002;
         public static final int activity_email_claim=0x7f030003;
         public static final int activity_main=0x7f030004;
-        public static final int claim_list_item=0x7f030005;
-        public static final int expense_item=0x7f030006;
+        public static final int claim_dialog=0x7f030005;
+        public static final int claim_list_item=0x7f030006;
+        public static final int expense_item=0x7f030007;
+        public static final int expense_list_item=0x7f030008;
     }
     public static final class menu {
         public static final int add_claim=0x7f080000;
@@ -100,7 +108,10 @@ public final class R {
         public static final int app_name=0x7f060000;
         public static final int button_cancle=0x7f060010;
         public static final int button_done=0x7f06000f;
+        public static final int button_text_cancel=0x7f060023;
+        public static final int button_text_edit=0x7f060022;
         public static final int button_text_plus_sign=0x7f060006;
+        public static final int button_text_remove=0x7f060021;
         public static final int hello_world=0x7f060013;
         public static final int list_item_empty=0x7f06001f;
         public static final int new_claim=0x7f060015;

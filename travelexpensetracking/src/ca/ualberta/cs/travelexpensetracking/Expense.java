@@ -74,9 +74,23 @@ public class Expense {
 		this.unitOfCurrency = newUnitOfCurrency;
 	}
 	
+	// return expense name as a string
+	public String toString(){
+		return this.getName();
+	}
 	
-	
-	
+	// return amount spend with currency unit
+	public String getSpendStr (){
+	    StringBuffer sb = new StringBuffer();
+	    sb.append("Total: ");
+	    
+	    
+	    sb.append(String.valueOf(amountSpend));
+	    sb.append(" ");
+	    sb.append(unitOfCurrency.toUpperCase());
+	    
+		return sb.toString();
+	}
 	
 	
 	

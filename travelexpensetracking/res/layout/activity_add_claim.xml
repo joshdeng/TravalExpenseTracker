@@ -61,7 +61,6 @@
 			                    android:layout_width="match_parent"
 			                    android:layout_height="wrap_content"
 			                    android:ems="10"
-			                    android:inputType="date" 
 							    android:layout_marginBottom="7dp" 
 							    android:layout_marginTop="3dp"
 							    android:textSize="16sp"
@@ -178,15 +177,12 @@
 				        android:orientation="horizontal" >
 			
 			                 
-			                <EditText
-			                    android:id="@+id/editTextStatus"
+			                <Spinner
+			                    android:id="@+id/spinnerStatus"
 			                  	android:layout_width="match_parent"
 			                    android:layout_height="wrap_content"
-			                    android:ems="10"
-							    android:layout_marginBottom="7dp" 
-							    android:layout_marginTop="3dp"
-							    android:textSize="16sp"
-							    android:hint="@string/prompt_status"
+			                    android:prompt="@string/prompt_status"
+			                    
 							    />
 							    
 			                 

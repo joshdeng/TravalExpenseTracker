@@ -35,10 +35,10 @@ public class ClaimListAdapter extends ArrayAdapter<Claim> {
        TextView TextViewClaimStatus = (TextView) convertView.findViewById(R.id.TextViewClaimStatus);
        // Populate the data into the template view using the data object
        TextViewClaimName.setText(claim.getClaimName());
-       Calendar date = claim.getStartDate();
-       // test
-       TextViewClaimDate.setText(String.format("%1$tA %1$tb %1$td %1$tY", date));
-       
+       // test: display date
+       //Calendar date = claim.getStartDate();
+       //TextViewClaimDate.setText(String.format("%1$tA %1$tb %1$td %1$tY", date));
+       TextViewClaimDate.setText(claim.getSpendStr());
        TextViewClaimStatus.setText(claim.getStatus());
        // Return the completed view to render on screen
        return convertView;

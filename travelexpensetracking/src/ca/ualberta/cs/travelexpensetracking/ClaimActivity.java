@@ -28,7 +28,7 @@ import android.widget.TextView;
 public class ClaimActivity extends Activity {
 	private static final String FILENAME = "save.sav";
 	private ClaimList Claims;
-	private String currentClaimName;
+
 	private int claimID;
 	private String claimIDstr;
 	private Claim currentClaim;
@@ -107,8 +107,9 @@ public class ClaimActivity extends Activity {
 		// set title text
 		TitleClaimName.setText(currentClaim.getClaimName());
 		
-		
-		
+		// set expense list with
+		ExpenseListAdapter expenseListAdapter = new ExpenseListAdapter (this, Claims.getClaimList().get(claimID).getExpenseList());
+		ExpenseListView.setAdapter(expenseListAdapter);
 		
 		
 		

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import com.google.gson.Gson;
@@ -18,8 +19,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class AddClaimActivity extends Activity {
 	
@@ -46,8 +49,9 @@ public class AddClaimActivity extends Activity {
 	private EditText editTextClaimEndDateDay;
 	private EditText editTextClaimEndDateMonth;
 	private EditText editTextClaimEndDateYear;
-	private EditText editTextStatus;
+
 	private EditText editTextClaimDescription;
+	private Spinner spinnerStatus;
 	
 	private Button buttonNewClaimDone;
 	private Button buttonNewClaimCancle;
@@ -71,14 +75,32 @@ public class AddClaimActivity extends Activity {
 		editTextClaimEndDateDay = (EditText)findViewById(R.id.editTextClaimEndDateDay);
 		editTextClaimEndDateMonth = (EditText)findViewById(R.id.editTextClaimEndDateMonth);
 		editTextClaimEndDateYear = (EditText)findViewById(R.id.editTextClaimEndDateYear);
-		editTextStatus = (EditText)findViewById(R.id.editTextStatus);
+		//editTextStatus = (EditText)findViewById(R.id.editTextStatus);
+		spinnerStatus = (Spinner)findViewById(R.id.spinnerStatus);
 		editTextClaimDescription = (EditText)findViewById(R.id.editTextClaimDescription);
 		buttonNewClaimDone = (Button)findViewById(R.id.buttonNewClaimDone);
 		buttonNewClaimCancle = (Button)findViewById(R.id.buttonNewClaimCancle);
 		
+		// set spinner 
+		ArrayList<String> statusList = new ArrayList<String>();
+		statusList.add("In progress");
+		statusList.add("Submitted");
+		statusList.add("Returned");
+		statusList.add("Approved");
+		// set adapter
+		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_spinner_item,statusList);
+		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinnerStatus.setAdapter(spinnerAdapter);
+		// set listener
+		addListenerOnSpinnerItemSelection();
+		}
+		
+		public void addListenerOnSpinnerItemSelection(){
+			spinnerStatus.setOnItemSelectedListener(new StatusOnItemSelectedListener());
+		}
 	
-	}
 	
+		
 
 	
 	@Override
@@ -103,7 +125,7 @@ public class AddClaimActivity extends Activity {
 				endDateDay = Integer.parseInt(editTextClaimEndDateDay.getText().toString());
 				endDateMonth = Integer.parseInt( editTextClaimEndDateMonth.getText().toString());
 				endDateYear = Integer.parseInt( editTextClaimEndDateYear.getText().toString());
-				status = editTextStatus.getText().toString();
+				status = String.valueOf(spinnerStatus.getSelectedItem());
 				description = editTextClaimDescription.getText().toString();
 				// TODO: exception handle
 				

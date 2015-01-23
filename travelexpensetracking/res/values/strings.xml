@@ -34,5 +34,8 @@
     <string name="text_view_email">Target Email Address:</string>
     <string name="list_item_empty">(empty)</string>
     <string name="title_activity_claim_list_adapter">ClaimListAdapter</string>
+    <string name="button_text_remove">Remove</string>
+    <string name="button_text_edit">Edit</string>
+    <string name="button_text_cancel">Cancel</string>
 
 </resources>

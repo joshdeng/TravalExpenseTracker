@@ -138,7 +138,27 @@ public class Claim {
 		return this.getClaimName();
 	}
 
-	
+	// return amount spends with currency units as a string (formated)
+	public String getSpendStr(){
+		this.currencySumClaim();
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < sumList.size();i++){
+			if (i == 0){
+				sb.append("Total: ");
+			}
+			sb.append(sumList.get(i).toString());
+			sb.append(" ");
+			sb.append(unitList.get(i).toUpperCase());
+			if (i != (sumList.size()-1)){
+				sb.append("; ");
+				
+			}
+			
+		}
+		
+		
+		return sb.toString();
+	}
 	
 	
 	

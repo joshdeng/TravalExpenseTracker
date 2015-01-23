@@ -80,22 +80,9 @@ public class MainActivity extends Activity {
 	protected void onStart() {
 		super.onStart();
 		// load claims
-		Claims = this.loadFromFile();
+		Claims = this.loadFromFile();	
 		
-		
-		//test cases
-		/*
-		Claim testc1 = new Claim("test1");
-		Claim testc2 = new Claim("test2");
-		Claim testc3 = new Claim("test3");
-				
-		Claims.addClaim(testc1);
-		Claims.addClaim(testc2);
-		Claims.addClaim(testc3);
-		*/
-		
-		
-		// set claim list adapter
+		// set claim list with adapter
 		ClaimListAdapter claimListAdapter = new ClaimListAdapter (this, Claims.getClaimList());
 		ClaimListView.setAdapter(claimListAdapter);
 		
@@ -105,13 +92,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			    // test: Claim clickedObj = (Claim)parent.getItemAtPosition(position);
-			    
-			    //toast for testing
-			    // test item
-			    //Toast.makeText(MainActivity.this,"Clicked item:\n" +clickedObj.getClaimName() + ": " +clickedObj.getStatus(),Toast.LENGTH_LONG).show();
-			    // test ID
-			    //Toast.makeText(MainActivity.this, Integer.toString(position), Toast.LENGTH_LONG).show();
-			    
+			  
 			    // jump to the target Claim object
 			    Intent intentEnterClaim = new Intent();
 			    // save claim id
