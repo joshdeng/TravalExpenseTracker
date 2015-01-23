@@ -137,8 +137,11 @@ public class MainActivity extends Activity {
 				public void onClick(View v) {
 					Claims.getClaimList().remove(onLongClickPos);
 					saveInFile();
+					claimListAdapter.clear();
+					Claims = loadFromFile();
+					claimListAdapter.addAll(Claims.getClaimList());
+					claimListAdapter.notifyDataSetChanged();
 					//onLongClickPos = 0;
-
 					dialog.dismiss();
 				  }
 				}
@@ -176,9 +179,11 @@ public class MainActivity extends Activity {
 	protected void onResume(){
 		 super.onResume();
 		 Claims = loadFromFile();
+		 // TODO: listView refresher
 		 //Claims = loadFromFile();
-		 claimListAdapter.addAll(Claims.getClaimList());
-		 claimListAdapter.notifyDataSetChanged();
+		 //claimListAdapter.clear();
+		 //claimListAdapter.addAll(Claims.getClaimList());
+		 //claimListAdapter.notifyDataSetChanged();
 		 
 	}
 	

@@ -49,5 +49,6 @@ public class ClaimListAdapter extends ArrayAdapter<Claim> {
        return convertView;
    }
 	
+
 	
 }
