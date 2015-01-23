@@ -18,6 +18,9 @@ public class Claim {
 	public Claim(String newName){
 		this.claimName  = newName;
 		this.status = "In progress";
+		expenseList = new ArrayList<Expense>();
+		sumList = new ArrayList<Integer>();
+		unitList = new ArrayList<String>(); 
 	}
 	
 	
@@ -129,7 +132,11 @@ public class Claim {
 		return this.unitList;
 	}
 	
-	
+	// return claim name as string
+	@Override
+	public String toString(){
+		return this.getClaimName();
+	}
 
 	
 	

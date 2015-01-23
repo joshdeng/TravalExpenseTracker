@@ -29,24 +29,29 @@
             android:name=".ClaimActivity"
             android:label="@string/title_activity_claim"
             android:theme="@android:style/Theme.Light.NoTitleBar"
-            android:windowSoftInputMode="adjustPan|stateHidden"  >
+            android:windowSoftInputMode="adjustPan|stateHidden" >
         </activity>
         <activity
             android:name=".AddExpenseActivity"
             android:label="@string/title_activity_add_expense"
             android:theme="@android:style/Theme.Light.NoTitleBar"
-            android:windowSoftInputMode="adjustPan|stateHidden"  >
+            android:windowSoftInputMode="adjustPan|stateHidden" >
         </activity>
         <activity
             android:name=".EmailClaim"
             android:label="@string/title_activity_email_claim"
             android:theme="@android:style/Theme.Light.NoTitleBar"
-            android:windowSoftInputMode="adjustPan|stateHidden"  >
+            android:windowSoftInputMode="adjustPan|stateHidden" >
         </activity>
         <activity
             android:name=".AddClaimActivity"
             android:label="@string/title_activity_add_claim"
-            android:windowSoftInputMode="adjustPan|stateHidden"  >
+            android:theme="@android:style/Theme.Light.NoTitleBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" >
+        </activity>
+        <activity
+            android:name=".ClaimListAdapter"
+            android:label="@string/title_activity_claim_list_adapter" >
         </activity>
     </application>
 

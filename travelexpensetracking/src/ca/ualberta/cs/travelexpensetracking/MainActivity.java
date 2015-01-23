@@ -10,6 +10,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 
+
+
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -20,39 +23,54 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-	private Button addClaimButton = null;
+	private Button addClaimButton;
 	private ClaimList Claims ;
 	private static final String FILENAME = "save.sav";
 	private EditText EditTextAddClaim;
 	private String newClaimName;
-	private ArrayAdapter<Claim> claimListAdapter;
+	private ListView ClaimListView;
+	
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		
+		
 		// button listener
 		addClaimButton = (Button) findViewById(R.id.addClaimButton);
+		ClaimListView = (ListView) findViewById(R.id.listViewClaim);
+		EditTextAddClaim = (EditText)findViewById(R.id.ClaimText);
+		
+		// set on click listener for add claim button
 		addClaimButton.setOnClickListener(new View.OnClickListener() {	
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent();
+				Intent intentAddClaim = new Intent();
+				// get new claim name
 				newClaimName = EditTextAddClaim.getText().toString();
-				intent.putExtra("newClaimName", newClaimName);
+				// save new claim name to intent
+				intentAddClaim.putExtra("newClaimName", newClaimName);
+				// save in file
 				saveInFile();
-				intent.setClass(MainActivity.this, AddClaimActivity.class);
-				MainActivity.this.startActivity(intent);
+				// jump to add claim activity
+				intentAddClaim.setClass(MainActivity.this, AddClaimActivity.class);
+				MainActivity.this.startActivity(intentAddClaim);
 			}
 		});
 			
-		EditTextAddClaim = (EditText)findViewById(R.id.ClaimText);
+		
 		
 	}
 	
@@ -61,8 +79,50 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onStart() {
 		super.onStart();
+		// load claims
 		Claims = this.loadFromFile();
-		//claimListAdapter = new ArrayAdapter<Claim>(this,R.layout.);
+		
+		
+		//test cases
+		/*
+		Claim testc1 = new Claim("test1");
+		Claim testc2 = new Claim("test2");
+		Claim testc3 = new Claim("test3");
+				
+		Claims.addClaim(testc1);
+		Claims.addClaim(testc2);
+		Claims.addClaim(testc3);
+		*/
+		
+		
+		// set claim list adapter
+		ClaimListAdapter claimListAdapter = new ClaimListAdapter (this, Claims.getClaimList());
+		ClaimListView.setAdapter(claimListAdapter);
+		
+		
+		// set list item on click listener
+		ClaimListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {	
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			    // test: Claim clickedObj = (Claim)parent.getItemAtPosition(position);
+			    
+			    //toast for testing
+			    // test item
+			    //Toast.makeText(MainActivity.this,"Clicked item:\n" +clickedObj.getClaimName() + ": " +clickedObj.getStatus(),Toast.LENGTH_LONG).show();
+			    // test ID
+			    //Toast.makeText(MainActivity.this, Integer.toString(position), Toast.LENGTH_LONG).show();
+			    
+			    // jump to the target Claim object
+			    Intent intentEnterClaim = new Intent();
+			    // save claim id
+				intentEnterClaim.putExtra("claimID", Integer.toString(position));
+				// save in file
+				saveInFile();
+				// jump to the target Claim object
+				intentEnterClaim.setClass(MainActivity.this, ClaimActivity.class);
+				MainActivity.this.startActivity(intentEnterClaim);
+				
+			}});
 		
 	}
 	
@@ -85,14 +145,15 @@ public class MainActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
+	//load claim list from file
 	private ClaimList loadFromFile(){
 		Gson gson = new Gson();
 		Claims = new  ClaimList();
 		try{
 			FileInputStream fis = openFileInput(FILENAME);
 			InputStreamReader in = new InputStreamReader(fis);
-			
-			Type typeOfT = new TypeToken<ArrayList<String>>(){}.getType();
+			// Taken form Gson java doc
+			Type typeOfT = new TypeToken<ClaimList>(){}.getType();
 			Claims = gson.fromJson(in, typeOfT);
 			fis.close();
 		} catch (FileNotFoundException e) {
@@ -106,7 +167,7 @@ public class MainActivity extends Activity {
 	}
 	
 	
-	
+	//save claim list from file
 	private void saveInFile(){
 	Gson gson = new Gson();
 		try {

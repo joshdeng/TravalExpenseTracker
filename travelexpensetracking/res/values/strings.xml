@@ -24,13 +24,15 @@
     <string name="prompt_expense_name">New Expense Name:</string>
     <string name="new_claim">New Claim</string>
     <string name="prompt_status">Status:</string>
-    <string name="prompt_start_date">Start Date:</string><string name="prompt_end_date">End Date:</string>
-    
+    <string name="prompt_start_date">Start Date:</string>
+    <string name="prompt_end_date">End Date:</string>
     <string name="prompt_day">DD</string>
     <string name="prompt_month">MM</string>
     <string name="prompt_expense_year">YYYY  (Date)</string>
     <string name="prompt_claim_start_year">YYYY  (Start)</string>
-    <string name="prompt_claim_end_year">YYYY  End</string>
+    <string name="prompt_claim_end_year">YYYY ( End)</string>
     <string name="text_view_email">Target Email Address:</string>
+    <string name="list_item_empty">(empty)</string>
+    <string name="title_activity_claim_list_adapter">ClaimListAdapter</string>
 
 </resources>
