@@ -72,49 +72,44 @@
 			                android:layout_height="wrap_content"
 			                android:orientation="horizontal" >
 			                
-		       			    
-		       			    
-		       			    
-			                
-		
 			                <EditText
 			                    android:id="@+id/editTextEditClaimStartDateDay"
 			                    android:layout_width="match_parent"
 			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="100"
 			                    android:ems="10"
-			                    android:inputType="date" 
-							    android:layout_marginBottom="7dp" 
-							    android:layout_marginTop="3dp"
-							    android:textSize="16sp"
-					
-							    android:hint="@string/prompt_day"
-							    android:layout_weight="100"/>
+			                    android:hint="@string/prompt_day"
+			                    android:inputType="date"
+			                    android:maxLength="2"
+			                    android:textSize="16sp" />
 			                
 			                <EditText
 			                    android:id="@+id/editTextEditClaimStartDateMonth"
 			                    android:layout_width="match_parent"
 			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="100"
 			                    android:ems="10"
-			                    android:inputType="date" 
-							    android:layout_marginBottom="7dp" 
-							    android:layout_marginTop="3dp"
-							    android:textSize="16sp"
-						
-							    android:hint="@string/prompt_month"
-							    android:layout_weight="100"/>
+			                    android:hint="@string/prompt_month"
+			                    android:inputType="date"
+			                    android:maxLength="2"
+			                    android:textSize="16sp" />
 			                
 			                <EditText
 			                    android:id="@+id/editTextEditClaimStartDateYear"
 			                    android:layout_width="match_parent"
 			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="75"
 			                    android:ems="10"
-			                    android:inputType="date" 
-							    android:layout_marginBottom="7dp" 
-							    android:layout_marginTop="3dp"
-							    android:textSize="16sp"
-							   
-							    android:hint="@string/prompt_claim_start_year"
-							    android:layout_weight="75"/>
+			                    android:hint="@string/prompt_claim_start_year"
+			                    android:inputType="date"
+			                    android:maxLength="4"
+			                    android:textSize="16sp" />
 			                
 			                 </LinearLayout>
 								
@@ -130,44 +125,43 @@
 				        android:orientation="horizontal" >
 			             
 			                 <EditText
-			                    android:id="@+id/editTextEditClaimEndDateDay"
-			                    android:layout_width="match_parent"
-			                    android:layout_height="wrap_content"
-			                    android:ems="10"
-			                    android:inputType="date" 
-							    android:layout_marginBottom="7dp" 
-							    android:layout_marginTop="3dp"
-							    android:textSize="16sp"
-					
-							    android:hint="@string/prompt_day"
-							    android:layout_weight="100"/>
+			                     android:id="@+id/editTextEditClaimEndDateDay"
+			                     android:layout_width="match_parent"
+			                     android:layout_height="wrap_content"
+			                     android:layout_marginBottom="7dp"
+			                     android:layout_marginTop="3dp"
+			                     android:layout_weight="100"
+			                     android:ems="10"
+			                     android:hint="@string/prompt_day"
+			                     android:inputType="date"
+			                     android:maxLength="2"
+			                     android:textSize="16sp" />
 			                
 			                <EditText
 			                    android:id="@+id/editTextEditClaimEndDateMonth"
 			                    android:layout_width="match_parent"
 			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="100"
 			                    android:ems="10"
-			                    android:inputType="date" 
-							    android:layout_marginBottom="7dp" 
-							    android:layout_marginTop="3dp"
-							    android:textSize="16sp"
-						
-							    android:hint="@string/prompt_month"
-							    android:layout_weight="100"/>
+			                    android:hint="@string/prompt_month"
+			                    android:inputType="date"
+			                    android:maxLength="2"
+			                    android:textSize="16sp" />
 			                
 			                <EditText
 			                    android:id="@+id/editTextEditClaimEndDateYear"
 			                    android:layout_width="match_parent"
 			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="75"
 			                    android:ems="10"
-			                    android:inputType="date" 
-							    android:layout_marginBottom="7dp" 
-							    android:layout_marginTop="3dp"
-							    android:textSize="16sp"
-							   
-							    android:hint="@string/prompt_claim_end_year"
-							    android:layout_weight="75"/>
-	              			
+			                    android:hint="@string/prompt_claim_end_year"
+			                    android:inputType="date"
+			                    android:maxLength="4"
+			                    android:textSize="16sp" />
 				
 			            </LinearLayout>
 			            

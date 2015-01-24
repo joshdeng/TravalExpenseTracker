@@ -194,12 +194,6 @@ public class MainActivity extends Activity {
 	protected void onResume(){
 		 super.onResume();
 		 Claims = loadFromFile();
-		 // TODO: listView refresher
-		 //Claims = loadFromFile();
-		 //claimListAdapter.clear();
-		 //claimListAdapter.addAll(Claims.getClaimList());
-		 //claimListAdapter.notifyDataSetChanged();
-		 
 	}
 	
 	

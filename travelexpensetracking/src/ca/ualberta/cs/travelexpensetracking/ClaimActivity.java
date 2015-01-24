@@ -13,12 +13,14 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +35,9 @@ public class ClaimActivity extends Activity {
 	private String claimIDstr;
 	private Claim currentClaim;
 	private String newExpenseName;
+	private int onLongClickPos;
+	private ExpenseListAdapter expenseListAdapter;
+	
 	
 	private Button addExpenseButton;
 	private TextView TitleClaimName;
@@ -100,20 +105,85 @@ public class ClaimActivity extends Activity {
 	@Override
 	protected void onStart() {
 		super.onStart();
-		// load claim list from file
-		Claims = this.loadFromFile();
+		Claims = loadFromFile();
 		// get current claim
 		currentClaim = Claims.getClaimList().get(claimID);
 		// set title text
 		TitleClaimName.setText(currentClaim.getClaimName());
 		
 		// set expense list with
-		ExpenseListAdapter expenseListAdapter = new ExpenseListAdapter (this, Claims.getClaimList().get(claimID).getExpenseList());
+		expenseListAdapter = new ExpenseListAdapter (this, Claims.getClaimList().get(claimID).getExpenseList());
 		ExpenseListView.setAdapter(expenseListAdapter);
 		
+		ExpenseListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+		@Override
+		public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+			// save position
+			onLongClickPos = position;
+		    // create a dialog
+			final Dialog dialog = new Dialog(ClaimActivity.this);
+			dialog.setContentView(R.layout.expense_dialog);
+			// set title as claim name
+			dialog.setTitle(Claims.getClaimList().get(position).getClaimName());
+			// get dialog content object
+			Button buttonEditClaimDialog = (Button) dialog.findViewById(R.id.buttonEditExpenseDialog);
+			Button buttonRemoveClaimDialog = (Button) dialog.findViewById(R.id.buttonRemoveExpenseDialog);
+			dialog.show();
+			
+			
+			
+			buttonRemoveClaimDialog.setOnClickListener(new View.OnClickListener() {	
+			@Override
+			public void onClick(View v) {
+				// save removed claim list
+				Claims.getClaimList().get(claimID).getExpenseList().remove(onLongClickPos);
+				saveInFile();
+				// reload list view
+				expenseListAdapter.clear();
+				Claims = loadFromFile();
+				expenseListAdapter.addAll(Claims.getClaimList().get(claimID).getExpenseList());
+				expenseListAdapter.notifyDataSetChanged();
+				// dismiss dialog
+				dialog.dismiss();
+			  }
+			}
+			);
+			
+
+			buttonEditClaimDialog.setOnClickListener(new View.OnClickListener() {	
+				@Override
+				public void onClick(View v) {
+					// create intent
+					Intent intentEdit = new Intent();
+					// save claim id into tent
+					intentEdit.putExtra("claimID",String.valueOf(claimIDstr));
+					intentEdit.putExtra("expenseID",String.valueOf(onLongClickPos));
+					// jump to email activity
+					intentEdit.setClass(ClaimActivity.this, EditExpenseActivity.class);
+					ClaimActivity.this.startActivity(intentEdit);
+				  }
+				}
+				);
+			
+			
+			return true;
+				
+				
+		}});
+
 		
-		
-	};
+	}
+	
+	@Override
+	protected void onResume(){
+		 super.onResume();
+		 Claims = loadFromFile();
+	}
+	
+	
+	
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

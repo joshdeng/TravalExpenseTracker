@@ -88,6 +88,8 @@ public class AddExpenseActivity extends Activity {
 		// display expense name
 		editTextExpenseName.setText(newExpenseName);
 		
+		
+		
 		// set on click listener for done button
 		buttonNewExpenseDone.setOnClickListener(new View.OnClickListener(){
 			@Override
@@ -137,6 +139,20 @@ public class AddExpenseActivity extends Activity {
 					
 			}
 			});
+		
+		
+		
+		buttonNewExpenseCancle.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+					Intent intentCancle = new Intent();
+					intentCancle.putExtra("claimID", claimIDstr);
+					intentCancle.setClass(AddExpenseActivity.this,ClaimActivity.class);
+					AddExpenseActivity.this.startActivity(intentCancle);
+			}
+			});
+		
+		
 	}
 	
 	@Override

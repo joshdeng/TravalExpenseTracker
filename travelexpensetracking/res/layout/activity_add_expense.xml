@@ -18,7 +18,7 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/textViewExpenseName"
+            android:id="@+id/textViewcExpenseName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -73,49 +73,44 @@
 			                android:layout_height="wrap_content"
 			                android:orientation="horizontal" >
 			                
-		       			    
-		       			    
-		       			    
-			                
-		
 			                <EditText
 			                    android:id="@+id/editTextExpenseDateDay"
 			                    android:layout_width="match_parent"
 			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="100"
 			                    android:ems="10"
-			                    android:inputType="date" 
-							    android:layout_marginBottom="7dp" 
-							    android:layout_marginTop="3dp"
-							    android:textSize="16sp"
-					
-							    android:hint="@string/prompt_day"
-							    android:layout_weight="100"/>
+			                    android:hint="@string/prompt_day"
+			                    android:inputType="date"
+			                    android:maxLength="2"
+			                    android:textSize="16sp" />
 			                
 			                <EditText
 			                    android:id="@+id/editTextExpenseDateMonth"
 			                    android:layout_width="match_parent"
 			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="100"
 			                    android:ems="10"
-			                    android:inputType="date" 
-							    android:layout_marginBottom="7dp" 
-							    android:layout_marginTop="3dp"
-							    android:textSize="16sp"
-						
-							    android:hint="@string/prompt_month"
-							    android:layout_weight="100"/>
+			                    android:hint="@string/prompt_month"
+			                    android:inputType="date"
+			                    android:maxLength="2"
+			                    android:textSize="16sp" />
 			                
 			                <EditText
 			                    android:id="@+id/editTextExpenseDateYear"
 			                    android:layout_width="match_parent"
 			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="75"
 			                    android:ems="10"
-			                    android:inputType="date" 
-							    android:layout_marginBottom="7dp" 
-							    android:layout_marginTop="3dp"
-							    android:textSize="16sp"
-							   
-							    android:hint="@string/prompt_expense_year"
-							    android:layout_weight="75"/>
+			                    android:hint="@string/prompt_expense_year"
+			                    android:inputType="date"
+			                    android:maxLength="4"
+			                    android:textSize="16sp" />
 			                
 			                 </LinearLayout>
 								
@@ -159,8 +154,9 @@
 			                    android:layout_weight="3"
 			                    android:ems="10"
 			                    android:hint="@string/prompt_amount_spend"
-			                    android:maxLines="1"
 			                    android:inputType="number"
+			                    android:maxLength="10"
+			                    android:maxLines="1"
 			                    android:textSize="16sp" />
 
 							     <requestFocus />

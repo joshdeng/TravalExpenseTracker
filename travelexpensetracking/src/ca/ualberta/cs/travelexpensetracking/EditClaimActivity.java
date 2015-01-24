@@ -76,7 +76,6 @@ import android.widget.Spinner;
 		editTextEditClaimEndDateDay = (EditText)findViewById(R.id.editTextEditClaimEndDateDay);
 		editTextEditClaimEndDateMonth = (EditText)findViewById(R.id.editTextEditClaimEndDateMonth);
 		editTextEditClaimEndDateYear = (EditText)findViewById(R.id.editTextEditClaimEndDateYear);
-		//editTextStatus = (EditText)findViewById(R.id.editTextStatus);
 		spinnerEditStatus = (Spinner)findViewById(R.id.spinnerEditStatus);
 		editTextEditClaimDescription = (EditText)findViewById(R.id.editTextEditClaimDescription);
 		buttonEditClaimDone = (Button)findViewById(R.id.buttonEditClaimDone);
@@ -113,8 +112,9 @@ import android.widget.Spinner;
 		// load current claim
 		currentClaim = Claims.getClaimList().get(claimID);
 		
-		// display claim name
+		// display current claim name
 		editTextEditClaimName.setText(currentClaim.getClaimName());
+		// display current description
 		editTextEditClaimDescription.setText(currentClaim.getDescription());
 		// set on click listener for done button
 		buttonEditClaimDone.setOnClickListener(new View.OnClickListener(){
