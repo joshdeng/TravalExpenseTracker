@@ -61,7 +61,9 @@
         </activity>
         <activity
             android:name=".EditExpenseActivity"
-            android:label="@string/title_activity_edit_expense" >
+            android:label="@string/title_activity_edit_expense"
+            android:theme="@android:style/Theme.Light.NoTitleBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" >
         </activity>
     </application>
 
