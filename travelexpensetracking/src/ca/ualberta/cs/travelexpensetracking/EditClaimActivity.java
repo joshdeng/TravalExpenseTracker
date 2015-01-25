@@ -103,6 +103,7 @@ import android.widget.Spinner;
 		
 
 	
+	@SuppressWarnings("static-access")
 	@Override
 	protected void onStart(){
 		super.onStart();
@@ -116,6 +117,16 @@ import android.widget.Spinner;
 		editTextEditClaimName.setText(currentClaim.getClaimName());
 		// display current description
 		editTextEditClaimDescription.setText(currentClaim.getDescription());
+		// set date
+		
+		editTextEditClaimStartDateDay.setText( String.valueOf(currentClaim.getStartDate().get(Calendar.DATE)));
+		editTextEditClaimStartDateMonth.setText( String.valueOf(currentClaim.getStartDate().get(Calendar.MONTH)));
+		editTextEditClaimStartDateYear.setText( String.valueOf(currentClaim.getStartDate().get(Calendar.YEAR)));
+
+		editTextEditClaimEndDateDay.setText( String.valueOf(currentClaim.getEndDate().get(Calendar.DATE))); 
+		editTextEditClaimEndDateMonth.setText(String.valueOf( currentClaim.getEndDate().get(Calendar.MONTH))); 
+		editTextEditClaimEndDateYear.setText(String.valueOf( currentClaim.getEndDate().get(Calendar.YEAR)));  
+
 		// set on click listener for done button
 		buttonEditClaimDone.setOnClickListener(new View.OnClickListener(){
 		@Override
@@ -146,7 +157,7 @@ import android.widget.Spinner;
 				// set end date
 				Calendar endDate = Calendar.getInstance();
 				endDate.set(endDateYear, endDateMonth, endDateDay);
-				currentClaim.setStartDate(endDate);
+				currentClaim.setEndDate(endDate);
 				
 				// set status
 				currentClaim.setStatus(status);

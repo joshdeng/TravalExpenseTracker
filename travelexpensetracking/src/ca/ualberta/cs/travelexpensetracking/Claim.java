@@ -2,8 +2,11 @@ package ca.ualberta.cs.travelexpensetracking;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Locale;
+
 
 public class Claim {
+
 	protected String claimName;
 	protected String status;
 	protected Calendar startDate;
@@ -148,7 +151,7 @@ public class Claim {
 			}
 			sb.append(sumList.get(i).toString());
 			sb.append(" ");
-			sb.append(unitList.get(i).toUpperCase());
+			sb.append(unitList.get(i).toUpperCase(Locale.ENGLISH));
 			if (i != (sumList.size()-1)){
 				sb.append("; ");
 				
@@ -160,8 +163,10 @@ public class Claim {
 		return sb.toString();
 	}
 	
-	
-	
+	// make claim object comparable (may not necessary)
+	public int compareTo(Claim c) {
+		return getStartDate().compareTo(c.getStartDate());
+	}
 	
 	
 	

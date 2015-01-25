@@ -16,6 +16,9 @@ import java.util.ArrayList;
 
 
 
+import java.util.Collections;
+import java.util.Comparator;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -86,6 +89,12 @@ public class MainActivity extends Activity {
 		super.onStart();
 		// load claims
 		Claims = this.loadFromFile();	
+		// sort the claim list with custom comparator
+		Collections.sort(Claims.getClaimList(),new Comparator<Claim>(){
+			public int compare(Claim c1, Claim c2) {
+				return c1.getStartDate().compareTo(c2.getStartDate());
+			}
+		});
 		
 		// set claim list with adapter
 		claimListAdapter = new ClaimListAdapter (this, Claims.getClaimList());
@@ -141,6 +150,13 @@ public class MainActivity extends Activity {
 					// reload list view
 					claimListAdapter.clear();
 					Claims = loadFromFile();
+					// sort the claim list with custom comparator
+					Collections.sort(Claims.getClaimList(),new Comparator<Claim>(){
+						public int compare(Claim c1, Claim c2) {
+							return c1.getStartDate().compareTo(c2.getStartDate());
+						}
+					});
+					
 					claimListAdapter.addAll(Claims.getClaimList());
 					claimListAdapter.notifyDataSetChanged();
 					// dismiss dialog
