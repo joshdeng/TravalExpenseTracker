@@ -1,14 +1,11 @@
 package ca.ualberta.cs.travelexpensetracking;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
+
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -17,13 +14,11 @@ import android.widget.TextView;
 public class ClaimListAdapter extends ArrayAdapter<Claim> {
 	
 
-	private Context context;
-	private ArrayList<Claim> ClaimList;
+
 
 	public ClaimListAdapter(Context context, ArrayList<Claim> ClaimList) {
 	       super(context, 0, ClaimList);
-	       this.context = context;
-	       this.ClaimList=ClaimList;
+
   }
 
 	@Override

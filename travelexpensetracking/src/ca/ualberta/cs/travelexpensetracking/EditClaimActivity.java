@@ -103,7 +103,7 @@ import android.widget.Spinner;
 		
 
 	
-	@SuppressWarnings("static-access")
+
 	@Override
 	protected void onStart(){
 		super.onStart();

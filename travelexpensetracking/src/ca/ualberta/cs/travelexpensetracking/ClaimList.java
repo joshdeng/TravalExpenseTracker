@@ -1,7 +1,7 @@
 package ca.ualberta.cs.travelexpensetracking;
 
 import java.util.ArrayList;
-import java.util.Calendar;
+
 
 public class ClaimList {
 	protected ArrayList<Claim> claimList ;

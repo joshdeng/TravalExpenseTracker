@@ -1,6 +1,7 @@
 package ca.ualberta.cs.travelexpensetracking;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 
 public class Expense {
@@ -87,7 +88,7 @@ public class Expense {
 	    
 	    sb.append(String.valueOf(amountSpend));
 	    sb.append(" ");
-	    sb.append(unitOfCurrency.toUpperCase());
+	    sb.append(unitOfCurrency.toUpperCase(Locale.ENGLISH));
 	    
 		return sb.toString();
 	}
