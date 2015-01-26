@@ -22,7 +22,10 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -269,6 +272,18 @@ public class MainActivity extends Activity {
 		}
 	}	
 		
+	// set on back pressed (exit with warning)
+	@Override
+	public void onBackPressed(){
+		new AlertDialog.Builder(this).setTitle("Exit")
+		.setMessage("Are you sure you want to exit?")
+		.setNegativeButton(android.R.string.no, null)
+        .setPositiveButton(android.R.string.yes, new OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+               	MainActivity.super.onBackPressed();
+            }
+        }).create().show();	
+	}
 		
 		
 	}

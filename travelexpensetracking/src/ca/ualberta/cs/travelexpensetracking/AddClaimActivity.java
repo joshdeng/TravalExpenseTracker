@@ -14,7 +14,11 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +33,7 @@ public class AddClaimActivity extends Activity {
 	private static final String FILENAME = "save.sav";
 	private ClaimList Claims ;
 	private Claim newClaim;
+	final Context context = this;
 	
 	// claim variables
 	private String newClaimName;
@@ -163,15 +168,21 @@ public class AddClaimActivity extends Activity {
 		});
 		
 
-		// set on click listener for cancel button
-		
+		// set on click listener for cancel button with warning
 	buttonNewClaimCancle.setOnClickListener(new View.OnClickListener(){
 		@Override
 		public void onClick(View v) {
-				Intent intentCancle = new Intent();
-				// jump to main activity
-				intentCancle.setClass(AddClaimActivity.this,MainActivity.class);
-				AddClaimActivity.this.startActivity(intentCancle);
+			AlertDialog.Builder ADB = new AlertDialog.Builder(context);
+			ADB.setTitle("Exit");
+			ADB.setMessage("Are you sure you want to exit without saving?");
+			ADB.setNegativeButton(android.R.string.no, null);
+	        ADB .setPositiveButton(android.R.string.yes, new OnClickListener() {
+	            public void onClick(DialogInterface arg0, int arg1) {
+	            	Intent intentBackPressed = new Intent();
+	        		intentBackPressed.setClass(AddClaimActivity.this, MainActivity.class);
+	        		AddClaimActivity.this.startActivity(intentBackPressed);
+	            }
+	        }).create().show();	
 	
 	}
 	});
@@ -238,4 +249,19 @@ public class AddClaimActivity extends Activity {
 			e.printStackTrace();
 		}
 	}	
+	
+	@Override
+	public void onBackPressed(){
+		new AlertDialog.Builder(this).setTitle("Exit")
+		.setMessage("Are you sure you want to exit without saving?")
+		.setNegativeButton(android.R.string.no, null)
+        .setPositiveButton(android.R.string.yes, new OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+            	Intent intentBackPressed = new Intent();
+        		intentBackPressed.setClass(AddClaimActivity.this, MainActivity.class);
+        		AddClaimActivity.this.startActivity(intentBackPressed);
+            }
+        }).create().show();	
+	}
+		
 }

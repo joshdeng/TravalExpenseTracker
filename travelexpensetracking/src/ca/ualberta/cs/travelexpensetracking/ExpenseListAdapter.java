@@ -23,7 +23,7 @@ public class ExpenseListAdapter extends ArrayAdapter<Expense> {
     if (convertView == null) {
        convertView = LayoutInflater.from(getContext()).inflate(R.layout.expense_list_item, parent, false);
     }
-    // Lookup view for data population
+    // Lookup template view for data population
     TextView TextViewExpenseName = (TextView) convertView.findViewById(R.id.TextViewExpenseName);
     TextView TextViewExpenseCurrency = (TextView) convertView.findViewById(R.id.TextViewExpenseCurrency);
     // Populate the data into the template view using the data object
