@@ -250,6 +250,7 @@ public class AddClaimActivity extends Activity {
 		}
 	}	
 	
+	// set one back pressed
 	@Override
 	public void onBackPressed(){
 		new AlertDialog.Builder(this).setTitle("Exit")

@@ -13,7 +13,11 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +32,7 @@ public class AddExpenseActivity extends Activity {
 	private Expense newExpense;
 	private int claimID ;
 	private String claimIDstr;
+	final Context context = this;
 	// claim variables
 	private String newExpenseName;
 	private String category;
@@ -145,11 +150,19 @@ public class AddExpenseActivity extends Activity {
 		buttonNewExpenseCancle.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
-					Intent intentCancle = new Intent();
-					intentCancle.putExtra("claimID", claimIDstr);
-					intentCancle.setClass(AddExpenseActivity.this,ClaimActivity.class);
-					AddExpenseActivity.this.startActivity(intentCancle);
-			}
+				AlertDialog.Builder ADB = new AlertDialog.Builder(context);
+				ADB.setTitle("Exit");
+				ADB.setMessage("Are you sure you want to exit without saving?");
+				ADB.setNegativeButton(android.R.string.no, null);
+		        ADB .setPositiveButton(android.R.string.yes, new OnClickListener() {
+		            public void onClick(DialogInterface arg0, int arg1) {
+		            	Intent intentBackPressed = new Intent();
+		            	intentBackPressed.putExtra("claimID", claimIDstr);
+		        		intentBackPressed.setClass(AddExpenseActivity.this, ClaimActivity.class);
+		        		AddExpenseActivity.this.startActivity(intentBackPressed);
+		            }
+		        }).create().show();	
+	}
 			});
 		
 		
@@ -213,6 +226,24 @@ public class AddExpenseActivity extends Activity {
 				e.printStackTrace();
 			}
 		}	
+		
+		
+		
+		// set one back pressed
+		@Override
+		public void onBackPressed(){
+			new AlertDialog.Builder(this).setTitle("Exit")
+			.setMessage("Are you sure you want to exit without saving?")
+			.setNegativeButton(android.R.string.no, null)
+	        .setPositiveButton(android.R.string.yes, new OnClickListener() {
+	            public void onClick(DialogInterface arg0, int arg1) {
+	            	Intent intentBackPressed = new Intent();
+	            	intentBackPressed.putExtra("claimID", claimIDstr);
+	        		intentBackPressed.setClass(AddExpenseActivity.this, ClaimActivity.class);
+	        		AddExpenseActivity.this.startActivity(intentBackPressed);
+	            }
+	        }).create().show();	
+		}
 		
 		}
 

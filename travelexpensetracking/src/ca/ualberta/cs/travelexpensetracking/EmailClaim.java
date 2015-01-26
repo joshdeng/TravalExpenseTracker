@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
+	// TODO: email claim
 public class EmailClaim extends Activity {
 
 	@Override
@@ -31,4 +33,6 @@ public class EmailClaim extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	
 }
