@@ -98,7 +98,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/skyblue"
-            android:text="@string/button_cancle"
+            android:text="@string/button_return"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -108,7 +108,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/skyblue"
-            android:text="@string/button_done"
+            android:text="@string/button_send"
             android:textSize="20sp" 
             android:textColor="@color/white" />
         

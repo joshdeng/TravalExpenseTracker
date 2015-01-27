@@ -138,6 +138,8 @@ public final class R {
         public static final int app_name=0x7f060000;
         public static final int button_cancle=0x7f060010;
         public static final int button_done=0x7f06000f;
+        public static final int button_return=0x7f06002a;
+        public static final int button_send=0x7f060029;
         public static final int button_text_cancel=0x7f060023;
         public static final int button_text_edit=0x7f060022;
         public static final int button_text_email=0x7f060024;

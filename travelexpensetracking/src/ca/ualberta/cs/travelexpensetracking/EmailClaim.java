@@ -9,7 +9,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Locale;
 
 import com.google.gson.Gson;
@@ -21,7 +20,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -69,25 +67,23 @@ public class EmailClaim extends Activity {
 		buttonEmailDone.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
-					Intent intentDone = new Intent();
+
 					Intent emailIntent = new Intent(Intent.ACTION_SEND);
 					emailIntent.setType("plain/text");
 					String[] recipients = {editTextEmailAddress.getText().toString()};
 					//set email intent
 					//emailIntent.setType("message/rfc822") ; // 
 					emailIntent.putExtra(Intent.EXTRA_EMAIL , recipients);   
-					emailIntent.putExtra(Intent.EXTRA_SUBJECT,"Claim: "+currentClaim.getClaimName());  
+					emailIntent.putExtra(Intent.EXTRA_SUBJECT,"Travel Expense Claim: "+currentClaim.getClaimName());  
 					emailIntent.putExtra(Intent.EXTRA_TEXT,formatOutput());  
 					try {
-					    startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+					    startActivity(Intent.createChooser(emailIntent, "Sending mail..."));
 					} catch (android.content.ActivityNotFoundException ex) {
-					    Toast.makeText(EmailClaim.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+					    Toast.makeText(EmailClaim.this, "Error: No email application installed!", Toast.LENGTH_SHORT).show();
 					}
 					// save in file
 					saveInFile();
-					// jump to main activity
-					//intentDone.setClass(EmailClaim.this,MainActivity.class);
-					//EmailClaim.this.startActivity(intentDone);
+				
 					
 				}
 			});
@@ -159,7 +155,7 @@ public class EmailClaim extends Activity {
 		for (int i = 0; i < currentClaim.getExpenseList().size();i++){
 		// add expense ID
 			sb.append("    ");
-			String expenseId = String.valueOf(i);
+			String expenseId = String.valueOf(i+1);
 			sb.append(expenseId+".");
 			sb.append("\n");
 		// add expense name
