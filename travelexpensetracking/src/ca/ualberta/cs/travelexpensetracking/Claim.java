@@ -21,8 +21,11 @@ public class Claim {
 	
 	// Constructor
 	public Claim(String newName){
-		this.claimName  = newName;
-		this.status = "In progress";
+		claimName  = newName;
+		status = "In progress";
+		description = "(empty)";
+		startDate = Calendar.getInstance();
+		endDate = Calendar.getInstance();
 		expenseList = new ArrayList<Expense>();
 		sumList = new ArrayList<Integer>();
 		unitList = new ArrayList<String>(); 
@@ -100,6 +103,7 @@ public class Claim {
 			// initialize
 			String currentUnit = this.expenseList.get(x).getUnitOfCurrency();
 			Integer currentAmount = this.expenseList.get(x).getAmountSpent();
+			Boolean flag = false;
 			// adding item to result
 			if  (this.unitList.isEmpty() != true){
 				for (int y = 0; y < (this.unitList.size()); y++ ){
@@ -107,12 +111,14 @@ public class Claim {
 					if (currentUnit.equals(currentULU)){
 						int currentULS = this.sumList.get(y);
 						this.sumList.set(y, currentULS + currentAmount);
+						flag = true;
 					}
 					
 				}
+				if (flag == false){
 				unitList.add(currentUnit);
 				sumList.add(currentAmount);
-				
+				}
 				
 			}else{
 				unitList.add(currentUnit);
@@ -148,9 +154,6 @@ public class Claim {
 		this.currencySumClaim();
 		StringBuffer sb = new StringBuffer();
 		for (int i = 0; i < sumList.size();i++){
-			if (i == 0){
-				sb.append("Total: ");
-			}
 			sb.append(sumList.get(i).toString());
 			sb.append(" ");
 			sb.append(unitList.get(i).toUpperCase(Locale.ENGLISH));

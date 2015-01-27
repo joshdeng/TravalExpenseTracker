@@ -115,7 +115,6 @@ public class AddClaimActivity extends Activity {
 		Claims = this.loadFromFile();
 		// display claim name
 		editTextClaimName.setText(newClaimName);
-				
 		// set on click listener for done button
 		buttonNewClaimDone.setOnClickListener(new View.OnClickListener(){
 		@Override

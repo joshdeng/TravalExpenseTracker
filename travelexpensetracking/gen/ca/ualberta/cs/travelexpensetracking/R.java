@@ -36,33 +36,33 @@ public final class R {
     }
     public static final class id {
         public static final int ClaimScrollView=0x7f090001;
-        public static final int ClaimText=0x7f09003a;
+        public static final int ClaimText=0x7f09003c;
         public static final int EditTextAddExpenseName=0x7f09001b;
-        public static final int TextViewClaimDate=0x7f090040;
-        public static final int TextViewClaimName=0x7f09003f;
-        public static final int TextViewClaimStatus=0x7f090041;
-        public static final int TextViewClaimTitle=0x7f090038;
-        public static final int TextViewExpenseCurrency=0x7f090045;
-        public static final int TextViewExpenseName=0x7f090044;
+        public static final int TextViewClaimDate=0x7f090042;
+        public static final int TextViewClaimName=0x7f090041;
+        public static final int TextViewClaimStatus=0x7f090043;
+        public static final int TextViewClaimTitle=0x7f09003a;
+        public static final int TextViewExpenseCurrency=0x7f090047;
+        public static final int TextViewExpenseName=0x7f090046;
         public static final int TitleClaimName=0x7f090019;
-        public static final int action_settings=0x7f090046;
-        public static final int addClaimButton=0x7f09003b;
+        public static final int action_settings=0x7f090048;
+        public static final int addClaimButton=0x7f09003d;
         public static final int addExpenseButton=0x7f09001c;
-        public static final int buttonCancleEmailDialog=0x7f09003c;
+        public static final int buttonCancleEmailDialog=0x7f09003e;
         public static final int buttonEditClaimCancle=0x7f090026;
-        public static final int buttonEditClaimDialog=0x7f09003d;
+        public static final int buttonEditClaimDialog=0x7f09003f;
         public static final int buttonEditClaimDone=0x7f090027;
         public static final int buttonEditExpenseCancle=0x7f090031;
-        public static final int buttonEditExpenseDialog=0x7f090042;
+        public static final int buttonEditExpenseDialog=0x7f090044;
         public static final int buttonEditExpenseDone=0x7f090032;
-        public static final int buttonEmailCancle=0x7f090036;
-        public static final int buttonEmailDone=0x7f090037;
+        public static final int buttonEmailCancle=0x7f090038;
+        public static final int buttonEmailDone=0x7f090039;
         public static final int buttonNewClaimCancle=0x7f09000b;
         public static final int buttonNewClaimDone=0x7f09000c;
         public static final int buttonNewExpenseCancle=0x7f090017;
         public static final int buttonNewExpenseDone=0x7f090018;
-        public static final int buttonRemoveClaimDialog=0x7f09003e;
-        public static final int buttonRemoveExpenseDialog=0x7f090043;
+        public static final int buttonRemoveClaimDialog=0x7f090040;
+        public static final int buttonRemoveExpenseDialog=0x7f090045;
         public static final int editTextClaimDescription=0x7f09000a;
         public static final int editTextClaimEndDateDay=0x7f090006;
         public static final int editTextClaimEndDateMonth=0x7f090007;
@@ -96,12 +96,14 @@ public final class R {
         public static final int editTextExpenseDescription=0x7f090016;
         public static final int editTextExpenseName=0x7f09000f;
         public static final int editTextExpenseUnitOfCurrency=0x7f090015;
+        public static final int emailPreview=0x7f090037;
+        public static final int emailTitle=0x7f090033;
         public static final int expenseScrollView=0x7f09000e;
-        public static final int listViewClaim=0x7f090039;
+        public static final int listViewClaim=0x7f09003b;
         public static final int listViewExpense=0x7f09001a;
+        public static final int scrollView1=0x7f090036;
         public static final int spinnerEditStatus=0x7f090024;
         public static final int spinnerStatus=0x7f090009;
-        public static final int textView1=0x7f090033;
         public static final int textViewClaimName=0x7f090000;
         public static final int textViewEmailAddress=0x7f090034;
         public static final int textViewExpenseName=0x7f090028;
@@ -152,6 +154,7 @@ public final class R {
         public static final int prompt_date=0x7f060008;
         public static final int prompt_day=0x7f060019;
         public static final int prompt_descriptoion=0x7f06000a;
+        public static final int prompt_email=0x7f060028;
         public static final int prompt_end_date=0x7f060018;
         public static final int prompt_expense_name=0x7f060014;
         public static final int prompt_expense_year=0x7f06001b;
@@ -171,6 +174,7 @@ public final class R {
         public static final int title_activity_edit_claim=0x7f060025;
         public static final int title_activity_edit_expense=0x7f060026;
         public static final int title_activity_email_claim=0x7f060004;
+        public static final int title_email=0x7f060027;
     }
     public static final class style {
         /** 

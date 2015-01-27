@@ -103,12 +103,13 @@ public class MainActivity extends Activity {
 		ClaimListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {	
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-			    // test: Claim clickedObj = (Claim)parent.getItemAtPosition(position);
+			    //test,Claim clickedObj = (Claim)parent.getItemAtPosition(position);
 			  
 			    // jump to the target Claim object
 			    Intent intentEnterClaim = new Intent();
 			    // save claim id
 				intentEnterClaim.putExtra("claimID", Integer.toString(position));
+		
 				// save in file
 				saveInFile();
 				// jump to the target Claim object
@@ -190,29 +191,17 @@ public class MainActivity extends Activity {
 						MainActivity.this.startActivity(intentEdit);
 					  }
 					}
-					);
-				
-				
+					);		
 				return true;
-				
-				
-			}});
-		
-		
-		
-		
-		
-	}
+		}});
+}
 	
 	@Override
 	protected void onResume(){
 		 super.onResume();
 		 Claims = loadFromFile();
 	}
-	
-	
-	
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -280,7 +269,7 @@ public class MainActivity extends Activity {
 		.setNegativeButton(android.R.string.no, null)
         .setPositiveButton(android.R.string.yes, new OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
-               	MainActivity.super.onBackPressed();
+               	MainActivity.super.finish();
             }
         }).create().show();	
 	}

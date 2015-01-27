@@ -16,6 +16,11 @@ public class Expense {
 	//constructor
 	public Expense(String expenseName) {
 		this.expenseName = expenseName;	
+		date = Calendar.getInstance();
+		category = "(empty)";
+		textualDescription = "(empty)";
+		amountSpend = 0;
+		unitOfCurrency = "(empty)";
 	}
 	
 	// getter and setter for expense name
@@ -72,7 +77,7 @@ public class Expense {
 	}
 
 	public void setUnitOfCurrency(String  newUnitOfCurrency) {
-		this.unitOfCurrency = newUnitOfCurrency;
+		this.unitOfCurrency = newUnitOfCurrency.toUpperCase(Locale.ENGLISH);
 	}
 	
 	// return expense name as a string
@@ -84,8 +89,6 @@ public class Expense {
 	public String getSpendStr (){
 	    StringBuffer sb = new StringBuffer();
 	    sb.append("Total: ");
-	    
-	    
 	    sb.append(String.valueOf(amountSpend));
 	    sb.append(" ");
 	    sb.append(unitOfCurrency.toUpperCase(Locale.ENGLISH));

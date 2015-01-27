@@ -11,6 +11,7 @@ import java.lang.reflect.Type;
 
 
 
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -26,6 +27,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
 
 public class ClaimActivity extends Activity {
 	private static final String FILENAME = "save.sav";
@@ -125,7 +127,8 @@ public class ClaimActivity extends Activity {
 			final Dialog dialog = new Dialog(ClaimActivity.this);
 			dialog.setContentView(R.layout.expense_dialog);
 			// set title as claim name
-			dialog.setTitle(Claims.getClaimList().get(position).getClaimName());
+			//Toast.makeText(getApplicationContext(), String.valueOf(position), Toast.LENGTH_LONG).show();
+			dialog.setTitle(Claims.getClaimList().get(claimID).getClaimName());
 			// get dialog content object
 			Button buttonEditClaimDialog = (Button) dialog.findViewById(R.id.buttonEditExpenseDialog);
 			Button buttonRemoveClaimDialog = (Button) dialog.findViewById(R.id.buttonRemoveExpenseDialog);

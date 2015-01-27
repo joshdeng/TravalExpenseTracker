@@ -3,9 +3,7 @@ package ca.ualberta.cs.travelexpensetracking;
 import java.util.ArrayList;
 
 import android.content.Context;
-
 import android.view.LayoutInflater;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -38,7 +36,8 @@ public class ClaimListAdapter extends ArrayAdapter<Claim> {
        // test: display date
        //Calendar date = claim.getStartDate();
        //TextViewClaimDate.setText(String.format("%1$tA %1$tb %1$td %1$tY", date));
-       TextViewClaimDate.setText(claim.getSpendStr());
+       String text = "Total: "+claim.getSpendStr();
+       TextViewClaimDate.setText(text);
        TextViewClaimStatus.setText(claim.getStatus());
        // Return the completed view to render on screen
        return convertView;
