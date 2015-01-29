@@ -31,8 +31,8 @@ import android.widget.Spinner;
 public class AddClaimActivity extends Activity {
 	
 	private static final String FILENAME = "save.sav";
-	private ClaimList Claims ;
-	private Claim newClaim;
+	private ClaimListModel Claims ;
+	private ClaimModel newClaim;
 	final Context context = this;
 	
 	// claim variables
@@ -84,7 +84,7 @@ public class AddClaimActivity extends Activity {
 		spinnerStatus = (Spinner)findViewById(R.id.spinnerStatus);
 		editTextClaimDescription = (EditText)findViewById(R.id.editTextClaimDescription);
 		buttonNewClaimDone = (Button)findViewById(R.id.buttonNewClaimDone);
-		buttonNewClaimCancle = (Button)findViewById(R.id.buttonNewClaimCancle);
+		buttonNewClaimCancle = (Button)findViewById(R.id.buttonNewClaimCancel);
 		
 		// set spinner 
 		ArrayList<String> statusList = new ArrayList<String>();
@@ -137,7 +137,7 @@ public class AddClaimActivity extends Activity {
 				
 				// create new claim with user input information
 				// set claim name
-				newClaim = new Claim(newClaimName);
+				newClaim = new ClaimModel(newClaimName);
 				// set description
 				newClaim.setDescription(description);
 				// set start date
@@ -161,6 +161,7 @@ public class AddClaimActivity extends Activity {
 				saveInFile();
 				// jump to main activity
 				intentDone.setClass(AddClaimActivity.this,MainActivity.class);
+				intentDone.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				AddClaimActivity.this.startActivity(intentDone);
 				
 			}
@@ -178,6 +179,7 @@ public class AddClaimActivity extends Activity {
 	        ADB .setPositiveButton(android.R.string.yes, new OnClickListener() {
 	            public void onClick(DialogInterface arg0, int arg1) {
 	            	Intent intentBackPressed = new Intent();
+	            	intentBackPressed.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 	        		intentBackPressed.setClass(AddClaimActivity.this, MainActivity.class);
 	        		AddClaimActivity.this.startActivity(intentBackPressed);
 	            }
@@ -210,14 +212,14 @@ public class AddClaimActivity extends Activity {
 	
 	
 	//load claim list from file
-	private ClaimList loadFromFile(){
+	private ClaimListModel loadFromFile(){
 		Gson gson = new Gson();
-		Claims = new  ClaimList();
+		Claims = new  ClaimListModel();
 		try{
 			FileInputStream fis = openFileInput(FILENAME);
 			InputStreamReader in = new InputStreamReader(fis);
 			// Taken form Gson java doc
-			Type typeOfT = new TypeToken<ClaimList>(){}.getType();
+			Type typeOfT = new TypeToken<ClaimListModel>(){}.getType();
 			Claims = gson.fromJson(in, typeOfT);
 			fis.close();
 		} catch (FileNotFoundException e) {
@@ -258,6 +260,7 @@ public class AddClaimActivity extends Activity {
         .setPositiveButton(android.R.string.yes, new OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
             	Intent intentBackPressed = new Intent();
+            	intentBackPressed.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         		intentBackPressed.setClass(AddClaimActivity.this, MainActivity.class);
         		AddClaimActivity.this.startActivity(intentBackPressed);
             }

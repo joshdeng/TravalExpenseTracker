@@ -7,26 +7,26 @@ import java.util.Locale;
 
 
 
-public class Claim {
+public class ClaimModel {
 
 	protected String claimName;
 	protected String status;
 	protected Calendar startDate;
 	protected Calendar endDate;
 	protected String description;
-	protected ArrayList<Expense> expenseList;
+	protected ArrayList<ExpenseModel> expenseList;
 	protected ArrayList<Integer> sumList;
 	protected ArrayList<String> unitList;
 	
 	
 	// Constructor
-	public Claim(String newName){
+	public ClaimModel(String newName){
 		claimName  = newName;
 		status = "In progress";
 		description = "(empty)";
 		startDate = Calendar.getInstance();
 		endDate = Calendar.getInstance();
-		expenseList = new ArrayList<Expense>();
+		expenseList = new ArrayList<ExpenseModel>();
 		sumList = new ArrayList<Integer>();
 		unitList = new ArrayList<String>(); 
 	}
@@ -78,14 +78,14 @@ public class Claim {
 	
 	
 	// getter and setter for expense list
-	public ArrayList<Expense> getExpenseList() {
+	public ArrayList<ExpenseModel> getExpenseList() {
 		return expenseList;
 	}
-	public void setExpenseList(ArrayList<Expense> expenseList) {
+	public void setExpenseList(ArrayList<ExpenseModel> expenseList) {
 		this.expenseList = expenseList;
 	}
 	
-	public void addExpense(Expense newExpense){
+	public void addExpense(ExpenseModel newExpense){
 	// add item and delete item from expense list
 		this.expenseList.add(newExpense);
 	}
@@ -169,7 +169,7 @@ public class Claim {
 	}
 	
 	// make claim object comparable (may not necessary)
-	public int compareTo(Claim c) {
+	public int compareTo(ClaimModel c) {
 		return getStartDate().compareTo(c.getStartDate());
 	}
 	

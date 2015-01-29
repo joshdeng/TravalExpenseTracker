@@ -39,7 +39,7 @@ import android.widget.ListView;
 public class MainActivity extends Activity {
 
 	private Button addClaimButton;
-	private ClaimList Claims ;
+	private ClaimListModel Claims ;
 	private static final String FILENAME = "save.sav";
 	private EditText EditTextAddClaim;
 	private String newClaimName;
@@ -88,8 +88,8 @@ public class MainActivity extends Activity {
 		// load claims
 		Claims = this.loadFromFile();	
 		// sort the claim list with custom comparator
-		Collections.sort(Claims.getClaimList(),new Comparator<Claim>(){
-			public int compare(Claim c1, Claim c2) {
+		Collections.sort(Claims.getClaimList(),new Comparator<ClaimModel>(){
+			public int compare(ClaimModel c1, ClaimModel c2) {
 				return c1.getStartDate().compareTo(c2.getStartDate());
 			}
 		});
@@ -150,8 +150,8 @@ public class MainActivity extends Activity {
 					claimListAdapter.clear();
 					Claims = loadFromFile();
 					// sort the claim list with custom comparator
-					Collections.sort(Claims.getClaimList(),new Comparator<Claim>(){
-						public int compare(Claim c1, Claim c2) {
+					Collections.sort(Claims.getClaimList(),new Comparator<ClaimModel>(){
+						public int compare(ClaimModel c1, ClaimModel c2) {
 							return c1.getStartDate().compareTo(c2.getStartDate());
 						}
 					});
@@ -222,14 +222,14 @@ public class MainActivity extends Activity {
 	}
 	
 	//load claim list from file
-	private ClaimList loadFromFile(){
+	private ClaimListModel loadFromFile(){
 		Gson gson = new Gson();
-		Claims = new  ClaimList();
+		Claims = new  ClaimListModel();
 		try{
 			FileInputStream fis = openFileInput(FILENAME);
 			InputStreamReader in = new InputStreamReader(fis);
 			// Taken form Gson java doc
-			Type typeOfT = new TypeToken<ClaimList>(){}.getType();
+			Type typeOfT = new TypeToken<ClaimListModel>(){}.getType();
 			Claims = gson.fromJson(in, typeOfT);
 			fis.close();
 		} catch (FileNotFoundException e) {
@@ -270,6 +270,7 @@ public class MainActivity extends Activity {
         .setPositiveButton(android.R.string.yes, new OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
                	MainActivity.super.finish();
+               	
             }
         }).create().show();	
 	}

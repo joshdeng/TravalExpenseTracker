@@ -31,8 +31,8 @@ import android.widget.Toast;
 
 
 public class EmailClaim extends Activity {
-	private ClaimList Claims ;
-	private Claim currentClaim;
+	private ClaimListModel Claims ;
+	private ClaimModel currentClaim;
 	private String claimIDstr;
 	private int claimID;
 	private String claimName;
@@ -41,7 +41,7 @@ public class EmailClaim extends Activity {
 	private String description;
 	final Context context = this;
 	private String test;
-	private ArrayList<Expense> expenseList;
+	private ArrayList<ExpenseModel> expenseList;
 	private EditText editTextEmailAddress;
 	private Button buttonEmailCancle;
 	private Button buttonEmailDone;
@@ -99,6 +99,7 @@ public class EmailClaim extends Activity {
 		        ADB .setPositiveButton(android.R.string.yes, new OnClickListener() {
 		            public void onClick(DialogInterface arg0, int arg1) {
 		            	Intent intentBackPressed = new Intent();
+		            	intentBackPressed.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		        		intentBackPressed.setClass(EmailClaim.this, MainActivity.class);
 		        		EmailClaim.this.startActivity(intentBackPressed);
 		            }
@@ -225,14 +226,14 @@ public class EmailClaim extends Activity {
 	
 	
 	//load claim list from file
-	private ClaimList loadFromFile(){
+	private ClaimListModel loadFromFile(){
 		Gson gson = new Gson();
-		Claims = new  ClaimList();
+		Claims = new  ClaimListModel();
 		try{
 			FileInputStream fis = openFileInput(FILENAME);
 			InputStreamReader in = new InputStreamReader(fis);
 			// Taken form Gson java doc
-			Type typeOfT = new TypeToken<ClaimList>(){}.getType();
+			Type typeOfT = new TypeToken<ClaimListModel>(){}.getType();
 			Claims = gson.fromJson(in, typeOfT);
 			fis.close();
 		} catch (FileNotFoundException e) {
@@ -267,6 +268,7 @@ public class EmailClaim extends Activity {
 	@Override
 	public void onBackPressed(){
 		Intent intentBackPressed = new Intent();
+		intentBackPressed.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		intentBackPressed.setClass(EmailClaim.this, MainActivity.class);
 		EmailClaim.this.startActivity(intentBackPressed);
 	}

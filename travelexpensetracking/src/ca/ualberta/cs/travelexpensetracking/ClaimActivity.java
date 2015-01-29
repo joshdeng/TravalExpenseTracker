@@ -31,11 +31,11 @@ import android.widget.TextView;
 
 public class ClaimActivity extends Activity {
 	private static final String FILENAME = "save.sav";
-	private ClaimList Claims;
+	private ClaimListModel Claims;
 
 	private int claimID;
 	private String claimIDstr;
-	private Claim currentClaim;
+	private ClaimModel currentClaim;
 	private String newExpenseName;
 	private int onLongClickPos;
 	private ExpenseListAdapter expenseListAdapter;
@@ -85,6 +85,7 @@ public class ClaimActivity extends Activity {
 				intentAddExpense.putExtra("newExpenseName", newExpenseName);
 				intentAddExpense.putExtra("claimID", claimIDstr);
 				// jump
+				
 				intentAddExpense.setClass(ClaimActivity.this, AddExpenseActivity.class);
 				ClaimActivity.this.startActivity(intentAddExpense);
 			}
@@ -208,14 +209,14 @@ public class ClaimActivity extends Activity {
 	}
 	
 	
-	private ClaimList loadFromFile(){
+	private ClaimListModel loadFromFile(){
 		Gson gson = new Gson();
-		Claims = new  ClaimList();
+		Claims = new  ClaimListModel();
 		try{
 			FileInputStream fis = openFileInput(FILENAME);
 			InputStreamReader in = new InputStreamReader(fis);
 			// Taken form Gson java doc
-			Type typeOfT = new TypeToken<ClaimList>(){}.getType();
+			Type typeOfT = new TypeToken<ClaimListModel>(){}.getType();
 			Claims = gson.fromJson(in, typeOfT);
 			fis.close();
 		} catch (FileNotFoundException e) {
@@ -252,6 +253,7 @@ public class ClaimActivity extends Activity {
 	@Override
 	public void onBackPressed(){
 		Intent intentBackPressed = new Intent();
+		intentBackPressed.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		intentBackPressed.setClass(ClaimActivity.this, MainActivity.class);
 		ClaimActivity.this.startActivity(intentBackPressed);
 	}

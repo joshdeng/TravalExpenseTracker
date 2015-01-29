@@ -28,8 +28,8 @@ import android.widget.EditText;
 
 public class EditExpenseActivity extends Activity {
 	private static final String FILENAME = "save.sav";
-	private ClaimList Claims ;
-	private Expense currentExpense;
+	private ClaimListModel Claims ;
+	private ExpenseModel currentExpense;
 	private int claimID ;
 	private String claimIDstr;
 	private int expenseID;
@@ -192,14 +192,14 @@ public class EditExpenseActivity extends Activity {
 	}
 	
 	//load claim list from file
-		private ClaimList loadFromFile(){
+		private ClaimListModel loadFromFile(){
 			Gson gson = new Gson();
-			Claims = new  ClaimList();
+			Claims = new  ClaimListModel();
 			try{
 				FileInputStream fis = openFileInput(FILENAME);
 				InputStreamReader in = new InputStreamReader(fis);
 				// Taken form Gson java doc
-				Type typeOfT = new TypeToken<ClaimList>(){}.getType();
+				Type typeOfT = new TypeToken<ClaimListModel>(){}.getType();
 				Claims = gson.fromJson(in, typeOfT);
 				fis.close();
 			} catch (FileNotFoundException e) {

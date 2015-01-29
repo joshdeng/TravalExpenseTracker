@@ -57,7 +57,7 @@ public final class R {
         public static final int buttonEditExpenseDone=0x7f090032;
         public static final int buttonEmailCancle=0x7f090038;
         public static final int buttonEmailDone=0x7f090039;
-        public static final int buttonNewClaimCancle=0x7f09000b;
+        public static final int buttonNewClaimCancel=0x7f09000b;
         public static final int buttonNewClaimDone=0x7f09000c;
         public static final int buttonNewExpenseCancle=0x7f090017;
         public static final int buttonNewExpenseDone=0x7f090018;
@@ -136,7 +136,7 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
-        public static final int button_cancle=0x7f060010;
+        public static final int button_cancel=0x7f060010;
         public static final int button_done=0x7f06000f;
         public static final int button_return=0x7f06002a;
         public static final int button_send=0x7f060029;

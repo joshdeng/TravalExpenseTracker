@@ -31,8 +31,8 @@ import android.widget.Spinner;
 	public class EditClaimActivity extends Activity {
 	private static final String FILENAME = "save.sav";
 	final Context context = this;
-	private ClaimList Claims ;
-	private Claim currentClaim;
+	private ClaimListModel Claims ;
+	private ClaimModel currentClaim;
 	private String claimIDstr;
 	private int claimID;
 	
@@ -175,6 +175,7 @@ import android.widget.Spinner;
 				saveInFile();
 				// jump to main activity
 				intentDone.setClass(EditClaimActivity.this,MainActivity.class);
+				intentDone.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				EditClaimActivity.this.startActivity(intentDone);
 				
 			}
@@ -195,6 +196,7 @@ import android.widget.Spinner;
 		            public void onClick(DialogInterface arg0, int arg1) {
 		            	Intent intentBackPressed = new Intent();
 		        		intentBackPressed.setClass(EditClaimActivity.this, MainActivity.class);
+		        		intentBackPressed.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		        		EditClaimActivity.this.startActivity(intentBackPressed);
 		            }
 		        }).create().show();	
@@ -225,14 +227,14 @@ import android.widget.Spinner;
 	}
 	
 	//load claim list from file
-	private ClaimList loadFromFile(){
+	private ClaimListModel loadFromFile(){
 		Gson gson = new Gson();
-		Claims = new  ClaimList();
+		Claims = new  ClaimListModel();
 		try{
 			FileInputStream fis = openFileInput(FILENAME);
 			InputStreamReader in = new InputStreamReader(fis);
 			// Taken form Gson java doc
-			Type typeOfT = new TypeToken<ClaimList>(){}.getType();
+			Type typeOfT = new TypeToken<ClaimListModel>(){}.getType();
 			Claims = gson.fromJson(in, typeOfT);
 			fis.close();
 		} catch (FileNotFoundException e) {
@@ -273,6 +275,7 @@ import android.widget.Spinner;
             public void onClick(DialogInterface arg0, int arg1) {
             	Intent intentBackPressed = new Intent();
         		intentBackPressed.setClass(EditClaimActivity.this, MainActivity.class);
+        		intentBackPressed.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         		EditClaimActivity.this.startActivity(intentBackPressed);
             }
         }).create().show();	

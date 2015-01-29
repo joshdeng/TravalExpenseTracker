@@ -17,7 +17,7 @@
     <string name="prompt_new_expemse">New Expense:</string>
     <string name="prompt_new_claim_name">New Claim Name:</string>
     <string name="button_done">Done</string>
-    <string name="button_cancle">Cancle</string>
+    <string name="button_cancel">Cancel</string>
     <string name="new_expense">New Expense</string>
     <string name="title_activity_add_claim">AddClaimActivity</string>
     <string name="hello_world">Hello world!</string>

@@ -3,31 +3,31 @@ package ca.ualberta.cs.travelexpensetracking;
 import java.util.ArrayList;
 
 
-public class ClaimList {
-	protected ArrayList<Claim> claimList ;
+public class ClaimListModel {
+	protected ArrayList<ClaimModel> claimList ;
 	protected ArrayList<Integer> totalSumList ;
 	protected ArrayList<String> totalUnitList ;
 	
 	
 	// constructor
-	public ClaimList(){
-		this.claimList = new ArrayList<Claim>();
+	public ClaimListModel(){
+		this.claimList = new ArrayList<ClaimModel>();
 		this.totalSumList = new ArrayList<Integer>();
 		this.totalUnitList = new ArrayList<String>();
 	}
 
 	
 	// getter and setter
-	public ArrayList<Claim> getClaimList() {
+	public ArrayList<ClaimModel> getClaimList() {
 		return claimList;
 	}
 
-	public void setClaimList(ArrayList<Claim> claimList) {
+	public void setClaimList(ArrayList<ClaimModel> claimList) {
 		this.claimList = claimList;
 	}
 	
 	// add item and remove item
-	public void addClaim(Claim newClaim){
+	public void addClaim(ClaimModel newClaim){
 		this.claimList.add(newClaim);
 	}
 	

@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 
-public class Expense {
+public class ExpenseModel {
 	
 	protected String expenseName;
 	protected Calendar date;
@@ -14,7 +14,7 @@ public class Expense {
 	protected String unitOfCurrency; 
 	
 	//constructor
-	public Expense(String expenseName) {
+	public ExpenseModel(String expenseName) {
 		this.expenseName = expenseName;	
 		date = Calendar.getInstance();
 		category = "(empty)";

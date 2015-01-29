@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class ClaimListAdapter extends ArrayAdapter<Claim> {
+public class ClaimListAdapter extends ArrayAdapter<ClaimModel> {
 	
 
 
 
-	public ClaimListAdapter(Context context, ArrayList<Claim> ClaimList) {
+	public ClaimListAdapter(Context context, ArrayList<ClaimModel> ClaimList) {
 	       super(context, 0, ClaimList);
 
   }
@@ -22,7 +22,7 @@ public class ClaimListAdapter extends ArrayAdapter<Claim> {
 	@Override
     public View getView(int position, View convertView, ViewGroup parent) {
        // Get the data item for this position
-       Claim claim = getItem(position);    
+       ClaimModel claim = getItem(position);    
        // Check if an existing view is being reused, otherwise inflate the view
        if (convertView == null) {
           convertView = LayoutInflater.from(getContext()).inflate(R.layout.claim_list_item, parent, false);
