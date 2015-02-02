@@ -1,0 +1,243 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="ca.ualberta.cs.xindong1notes.AddExpenseActivity" >
+
+    <LinearLayout
+        android:background="@color/skyblue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textViewcExpenseName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/new_expense"
+            android:textColor="@color/white"
+            android:textSize="35sp" />
+
+    </LinearLayout>
+    
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_marginBottom="7dp"
+	        android:layout_marginLeft="7dp"
+	        android:layout_marginRight="7dp"
+	        android:layout_marginTop="9dp"
+	        android:layout_weight="20"
+	        android:background="@color/white"
+	        android:orientation="vertical" >
+
+	       		<ScrollView
+	       		    android:id="@+id/expenseScrollView"
+	       		    android:layout_width="match_parent"
+	       		    android:layout_height="match_parent"
+	       		    android:background="@color/white" >
+
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:orientation="vertical" >
+						
+	                 <LinearLayout
+	                     android:layout_width="match_parent"
+	                     android:layout_height="match_parent"
+	                     android:layout_weight="1"
+	                     android:background="@color/white"
+	                     android:orientation="vertical" >
+
+	                	<EditText
+			                    android:id="@+id/editTextExpenseName"
+			                    android:layout_width="match_parent"
+			                    android:layout_height="wrap_content"
+			                    android:ems="10"
+							    android:layout_marginBottom="7dp" 
+							    android:layout_marginTop="3dp"
+							    android:textSize="16sp"
+							    android:layout_weight="6"
+							    android:hint="@string/prompt_name"/>
+	                
+		       			<LinearLayout
+		       			    android:layout_width="match_parent"
+			                android:layout_height="wrap_content"
+			                android:orientation="horizontal" >
+			                
+			                <EditText
+			                    android:id="@+id/editTextExpenseDateDay"
+			                    android:layout_width="match_parent"
+			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="100"
+			                    android:ems="10"
+			                    android:hint="@string/prompt_day"
+			                    android:inputType="date"
+			                    android:maxLength="2"
+			                    android:textSize="16sp" />
+			                
+			                <EditText
+			                    android:id="@+id/editTextExpenseDateMonth"
+			                    android:layout_width="match_parent"
+			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="100"
+			                    android:ems="10"
+			                    android:hint="@string/prompt_month"
+			                    android:inputType="date"
+			                    android:maxLength="2"
+			                    android:textSize="16sp" />
+			                
+			                <EditText
+			                    android:id="@+id/editTextExpenseDateYear"
+			                    android:layout_width="match_parent"
+			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="75"
+			                    android:ems="10"
+			                    android:hint="@string/prompt_expense_year"
+			                    android:inputType="date"
+			                    android:maxLength="4"
+			                    android:textSize="16sp" />
+			                
+			                 </LinearLayout>
+								
+	                
+	       			
+	       				<LinearLayout
+	       			    android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+				        android:orientation="horizontal" >
+			
+			                 
+			                <EditText
+			                    android:id="@+id/editTextExpenseCategory"
+			                    android:layout_width="match_parent"
+			                    android:layout_height="wrap_content"
+			                    android:ems="10"
+			                    android:layout_weight="6"
+							    android:layout_marginBottom="7dp"
+							    android:textSize="16sp" 
+							    android:hint="@string/prompt_category"
+							    />
+							    
+			                 
+			                    
+	                    	 </LinearLayout>
+	                    
+	       				
+	       			
+			                    
+	       				
+	       				<LinearLayout
+	       			    android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+				        android:orientation="horizontal" >
+			             
+			                <EditText
+			                    android:id="@+id/editTextExpenseAmoutnSpend"
+			                    android:layout_width="match_parent"
+			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_weight="3"
+			                    android:ems="10"
+			                    android:hint="@string/prompt_amount_spend"
+			                    android:inputType="number"
+			                    android:maxLength="10"
+			                    android:maxLines="1"
+			                    android:textSize="16sp" />
+
+							     <requestFocus />
+	              			
+							<EditText
+							    android:id="@+id/editTextExpenseUnitOfCurrency"
+							    android:layout_width="match_parent"
+							    android:layout_height="match_parent"
+							    android:layout_marginBottom="7dp"
+							    android:layout_marginLeft="2dp"
+							    android:layout_weight="7"
+							    android:ems="10"
+							    android:hint="@string/prompt_unit_of_currency"
+							    android:lines="1"
+							    android:maxLength="3"
+							    android:textSize="16sp" />
+							    
+			            </LinearLayout>
+			            
+	       				 </LinearLayout>
+	       				
+	       			   <LinearLayout
+	       			       android:layout_width="match_parent"
+	       			       android:layout_height="match_parent"
+	       			       android:layout_weight="1"
+	       			       android:background="@color/white"
+	       			       android:orientation="vertical" >
+			       				
+					                <EditText
+					                    android:id="@+id/editTextExpenseDescription"
+					                    android:layout_width="match_parent"
+					                    android:layout_height="match_parent"
+					                    android:layout_marginBottom="7dp"
+					                    android:ems="10"
+					                    android:gravity="top|left"
+					                    android:hint="@string/prompt_descriptoion"
+					                    android:lines="10"
+					                    android:textSize="16sp" />
+
+									     <requestFocus />
+			              		
+									     </LinearLayout>
+					       
+	                    
+	                    
+
+	                   
+	                
+	            </LinearLayout>
+	        </ScrollView>
+	       
+    </LinearLayout>
+    
+    <LinearLayout
+        android:background="@color/skyblue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="100"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/buttonNewExpenseCancle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/skyblue"
+            android:text="@string/button_cancel"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/buttonNewExpenseDone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/skyblue"
+            android:text="@string/button_done"
+            android:textSize="20sp" 
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

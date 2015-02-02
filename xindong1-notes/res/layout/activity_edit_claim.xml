@@ -1,0 +1,253 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="ca.ualberta.cs.xindong1notes.EditClaimActivity" >
+
+ <LinearLayout
+        android:background="@color/skyblue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textViewClaimName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/new_claim"
+            android:textColor="@color/white"
+            android:textSize="35sp" />
+
+    </LinearLayout>
+    
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_marginBottom="7dp"
+	        android:layout_marginLeft="7dp"
+	        android:layout_marginRight="7dp"
+	        android:layout_marginTop="9dp"
+	        android:layout_weight="20"
+	        android:background="@color/white"
+	        android:orientation="vertical" >
+
+	       		<ScrollView
+	       		    android:id="@+id/ClaimScrollView"
+	       		    android:layout_width="match_parent"
+	       		    android:layout_height="match_parent"
+	       		    android:background="@color/white" >
+
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:orientation="vertical" >
+						
+	                 <LinearLayout
+	                     android:layout_width="match_parent"
+	                     android:layout_height="match_parent"
+	                     android:layout_weight="1"
+	                     android:background="@color/white"
+	                     android:orientation="vertical" >
+
+	                	<EditText
+			                    android:id="@+id/editTextEditClaimName"
+			                    android:layout_width="match_parent"
+			                    android:layout_height="wrap_content"
+			                    android:ems="10"
+							    android:layout_marginBottom="7dp" 
+							    android:layout_marginTop="3dp"
+							    android:textSize="16sp"
+							    android:layout_weight="6"
+							    android:hint="@string/prompt_name"/>
+	                
+		       			<LinearLayout
+		       			    android:layout_width="match_parent"
+			                android:layout_height="wrap_content"
+			                android:orientation="horizontal" >
+			                
+			                <EditText
+			                    android:id="@+id/editTextEditClaimStartDateDay"
+			                    android:layout_width="match_parent"
+			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="100"
+			                    android:ems="10"
+			                    android:hint="@string/prompt_day"
+			                    android:inputType="date"
+			                    android:maxLength="2"
+			                    android:textSize="16sp" />
+			                
+			                <EditText
+			                    android:id="@+id/editTextEditClaimStartDateMonth"
+			                    android:layout_width="match_parent"
+			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="100"
+			                    android:ems="10"
+			                    android:hint="@string/prompt_month"
+			                    android:inputType="date"
+			                    android:maxLength="2"
+			                    android:textSize="16sp" />
+			                
+			                <EditText
+			                    android:id="@+id/editTextEditClaimStartDateYear"
+			                    android:layout_width="match_parent"
+			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="75"
+			                    android:ems="10"
+			                    android:hint="@string/prompt_claim_start_year"
+			                    android:inputType="date"
+			                    android:maxLength="4"
+			                    android:textSize="16sp" />
+			                
+			                 </LinearLayout>
+								
+	                
+	       			
+	       			
+	       			
+			                    
+	       				
+	       				<LinearLayout
+	       			    android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+				        android:orientation="horizontal" >
+			             
+			                 <EditText
+			                     android:id="@+id/editTextEditClaimEndDateDay"
+			                     android:layout_width="match_parent"
+			                     android:layout_height="wrap_content"
+			                     android:layout_marginBottom="7dp"
+			                     android:layout_marginTop="3dp"
+			                     android:layout_weight="100"
+			                     android:ems="10"
+			                     android:hint="@string/prompt_day"
+			                     android:inputType="date"
+			                     android:maxLength="2"
+			                     android:textSize="16sp" />
+			                
+			                <EditText
+			                    android:id="@+id/editTextEditClaimEndDateMonth"
+			                    android:layout_width="match_parent"
+			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="100"
+			                    android:ems="10"
+			                    android:hint="@string/prompt_month"
+			                    android:inputType="date"
+			                    android:maxLength="2"
+			                    android:textSize="16sp" />
+			                
+			                <EditText
+			                    android:id="@+id/editTextEditClaimEndDateYear"
+			                    android:layout_width="match_parent"
+			                    android:layout_height="wrap_content"
+			                    android:layout_marginBottom="7dp"
+			                    android:layout_marginTop="3dp"
+			                    android:layout_weight="75"
+			                    android:ems="10"
+			                    android:hint="@string/prompt_claim_end_year"
+			                    android:inputType="date"
+			                    android:maxLength="4"
+			                    android:textSize="16sp" />
+				
+			            </LinearLayout>
+			            
+	       					<LinearLayout
+	       			    android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+				        android:orientation="horizontal" >
+			
+			                 
+			                <Spinner
+			                    android:id="@+id/spinnerEditStatus"
+			                  	android:layout_width="match_parent"
+			                    android:layout_height="wrap_content"
+			                    android:prompt="@string/prompt_status"
+			                    
+							    />
+							    
+			                 
+			                    
+	                    	 </LinearLayout>
+	                    
+	       				
+	       				
+	       				
+	       				 </LinearLayout>
+	       				
+	       			   <LinearLayout
+	       			       android:layout_width="match_parent"
+	       			       android:layout_height="match_parent"
+	       			       android:layout_weight="1"
+	       			       android:background="@color/white"
+	       			       android:orientation="vertical" >
+			       				
+					                <EditText
+					                    android:id="@+id/editTextEditClaimDescription"
+					                    android:layout_width="match_parent"
+					                    android:layout_height="match_parent"
+					                    android:layout_marginBottom="7dp"
+					                    android:ems="10"
+					                    android:gravity="top|left"
+					                    android:hint="@string/prompt_descriptoion"
+					                    android:lines="10"
+					                    android:textSize="16sp" />
+
+									     <requestFocus />
+			              		
+									     </LinearLayout>
+					       
+	                    
+	                    
+
+	                   
+	                
+	            </LinearLayout>
+	        </ScrollView>
+	       
+    </LinearLayout>
+    
+    <LinearLayout
+        android:background="@color/skyblue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="100"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/buttonEditClaimCancle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/skyblue"
+            android:text="@string/button_cancel"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/buttonEditClaimDone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/skyblue"
+            android:text="@string/button_done"
+            android:textSize="20sp" 
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
