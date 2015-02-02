@@ -31,7 +31,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+// submit a claim via email
 public class EmailClaim extends Activity {
 	// declare variables
 	private ClaimListModel Claims ;

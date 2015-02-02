@@ -39,6 +39,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+// main activity, shows detail of all claims
 public class MainActivity extends Activity {
 
 	private Button addClaimButton;

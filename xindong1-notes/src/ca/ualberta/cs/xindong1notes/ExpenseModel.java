@@ -3,7 +3,7 @@ package ca.ualberta.cs.xindong1notes;
 import java.util.Calendar;
 import java.util.Locale;
 
-
+// ExpenseModel: use to record single expense and its details
 public class ExpenseModel {
 	
 	protected String expenseName;

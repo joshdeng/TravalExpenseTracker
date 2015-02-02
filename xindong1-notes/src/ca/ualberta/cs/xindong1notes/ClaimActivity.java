@@ -31,7 +31,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-
+// shows details of a claim object
 public class ClaimActivity extends Activity {
 	private static final String FILENAME = "save.sav";
 	private ClaimListModel Claims;

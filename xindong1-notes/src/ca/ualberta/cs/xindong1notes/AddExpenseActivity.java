@@ -28,7 +28,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
+// add expense to a claim
 public class AddExpenseActivity extends Activity {
 	private static final String FILENAME = "save.sav";
 	private ClaimListModel Claims ;

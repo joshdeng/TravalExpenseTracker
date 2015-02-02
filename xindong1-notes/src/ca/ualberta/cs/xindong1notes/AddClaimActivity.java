@@ -31,6 +31,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+// add a new claim object to claim list
 public class AddClaimActivity extends Activity {
 	
 	private static final String FILENAME = "save.sav";

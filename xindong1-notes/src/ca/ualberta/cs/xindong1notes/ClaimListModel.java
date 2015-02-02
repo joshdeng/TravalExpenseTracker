@@ -2,7 +2,7 @@ package ca.ualberta.cs.xindong1notes;
 
 import java.util.ArrayList;
 
-
+// ClaimListModel: to store claim object
 public class ClaimListModel {
 	protected ArrayList<ClaimModel> claimList ;
 	protected ArrayList<Integer> totalSumList ;

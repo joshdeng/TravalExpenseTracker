@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-
+// list adapter for expense list view
 public class ExpenseListAdapter extends ArrayAdapter<ExpenseModel> {
 
 	public ExpenseListAdapter(Context context, ArrayList<ExpenseModel> users) {

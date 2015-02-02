@@ -31,6 +31,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+ // edit a claim object
 	public class EditClaimActivity extends Activity {
 	private static final String FILENAME = "save.sav";
 	final Context context = this;

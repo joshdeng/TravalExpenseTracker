@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 
-
+// ClaimModel: use to record a travel and its expenses
 
 public class ClaimModel {
 

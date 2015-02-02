@@ -1,5 +1,8 @@
 package ca.ualberta.cs.xindong1notes;
 
+
+
+// adapter for claim object list view
 import java.util.ArrayList;
 
 import ca.ualberta.cs.travelexpensetracking.R;
@@ -11,9 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 public class ClaimListAdapter extends ArrayAdapter<ClaimModel> {
-	
-
-
 
 	public ClaimListAdapter(Context context, ArrayList<ClaimModel> ClaimList) {
 	       super(context, 0, ClaimList);
