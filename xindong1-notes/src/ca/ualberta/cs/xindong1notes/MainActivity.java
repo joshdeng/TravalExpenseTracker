@@ -96,12 +96,7 @@ public class MainActivity extends Activity {
 		super.onStart();
 		// load claims
 		Claims = this.loadFromFile();	
-		// sort the claim list with custom comparator
-		Collections.sort(Claims.getClaimList(),new Comparator<ClaimModel>(){
-			public int compare(ClaimModel c1, ClaimModel c2) {
-				return c1.getStartDate().compareTo(c2.getStartDate());
-			}
-		});
+	
 		
 		// set claim list with adapter
 		claimListAdapter = new ClaimListAdapter (this, Claims.getClaimList());
@@ -168,13 +163,7 @@ public class MainActivity extends Activity {
 							// reload list view
 							claimListAdapter.clear();
 							Claims = loadFromFile();
-							// sort the claim list with custom comparator
-							Collections.sort(Claims.getClaimList(),new Comparator<ClaimModel>(){
-								public int compare(ClaimModel c1, ClaimModel c2) {
-									return c1.getStartDate().compareTo(c2.getStartDate());
-								}
-							});
-							
+				
 							claimListAdapter.addAll(Claims.getClaimList());
 							claimListAdapter.notifyDataSetChanged();
 							// dismiss dialog
