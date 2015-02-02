@@ -38,31 +38,34 @@ public final class R {
         public static final int ClaimScrollView=0x7f090001;
         public static final int ClaimText=0x7f09003c;
         public static final int EditTextAddExpenseName=0x7f09001b;
-        public static final int TextViewClaimDate=0x7f090042;
-        public static final int TextViewClaimName=0x7f090041;
-        public static final int TextViewClaimStatus=0x7f090043;
+        public static final int TextViewClaimDate=0x7f090045;
+        public static final int TextViewClaimName=0x7f090044;
+        public static final int TextViewClaimStatus=0x7f090046;
         public static final int TextViewClaimTitle=0x7f09003a;
-        public static final int TextViewExpenseCurrency=0x7f090047;
-        public static final int TextViewExpenseName=0x7f090046;
+        public static final int TextViewExpenseCurrency=0x7f09004a;
+        public static final int TextViewExpenseName=0x7f090049;
         public static final int TitleClaimName=0x7f090019;
-        public static final int action_settings=0x7f090048;
+        public static final int action_settings=0x7f09004b;
         public static final int addClaimButton=0x7f09003d;
         public static final int addExpenseButton=0x7f09001c;
-        public static final int buttonCancleEmailDialog=0x7f09003e;
+        public static final int buttonApproveDialog=0x7f090041;
         public static final int buttonEditClaimCancle=0x7f090026;
         public static final int buttonEditClaimDialog=0x7f09003f;
         public static final int buttonEditClaimDone=0x7f090027;
         public static final int buttonEditExpenseCancle=0x7f090031;
-        public static final int buttonEditExpenseDialog=0x7f090044;
+        public static final int buttonEditExpenseDialog=0x7f090047;
         public static final int buttonEditExpenseDone=0x7f090032;
         public static final int buttonEmailCancle=0x7f090038;
+        public static final int buttonEmailDialog=0x7f09003e;
         public static final int buttonEmailDone=0x7f090039;
         public static final int buttonNewClaimCancel=0x7f09000b;
         public static final int buttonNewClaimDone=0x7f09000c;
         public static final int buttonNewExpenseCancle=0x7f090017;
         public static final int buttonNewExpenseDone=0x7f090018;
         public static final int buttonRemoveClaimDialog=0x7f090040;
-        public static final int buttonRemoveExpenseDialog=0x7f090045;
+        public static final int buttonRemoveClaimDialog2=0x7f090043;
+        public static final int buttonRemoveExpenseDialog=0x7f090048;
+        public static final int buttonReturnDialog=0x7f090042;
         public static final int editTextClaimDescription=0x7f09000a;
         public static final int editTextClaimEndDateDay=0x7f090006;
         public static final int editTextClaimEndDateMonth=0x7f090007;
@@ -118,10 +121,11 @@ public final class R {
         public static final int activity_email_claim=0x7f030005;
         public static final int activity_main=0x7f030006;
         public static final int claim_dialog=0x7f030007;
-        public static final int claim_list_item=0x7f030008;
-        public static final int expense_dialog=0x7f030009;
-        public static final int expense_item=0x7f03000a;
-        public static final int expense_list_item=0x7f03000b;
+        public static final int claim_dialog2=0x7f030008;
+        public static final int claim_list_item=0x7f030009;
+        public static final int expense_dialog=0x7f03000a;
+        public static final int expense_item=0x7f03000b;
+        public static final int expense_list_item=0x7f03000c;
     }
     public static final class menu {
         public static final int add_claim=0x7f080000;
@@ -136,6 +140,7 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
+        public static final int button_approve=0x7f06002b;
         public static final int button_cancel=0x7f060010;
         public static final int button_done=0x7f06000f;
         public static final int button_return=0x7f06002a;

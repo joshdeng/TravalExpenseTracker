@@ -27,6 +27,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 	public class EditClaimActivity extends Activity {
 	private static final String FILENAME = "save.sav";
@@ -89,9 +90,6 @@ import android.widget.Spinner;
 		// set spinner 
 		ArrayList<String> statusList = new ArrayList<String>();
 		statusList.add("In progress");
-		statusList.add("Submitted");
-		statusList.add("Returned");
-		statusList.add("Approved");
 		// set adapter
 		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_spinner_item,statusList);
 		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -131,12 +129,27 @@ import android.widget.Spinner;
 		editTextEditClaimEndDateDay.setText( String.valueOf(currentClaim.getEndDate().get(Calendar.DATE))); 
 		editTextEditClaimEndDateMonth.setText(String.valueOf( currentClaim.getEndDate().get(Calendar.MONTH))); 
 		editTextEditClaimEndDateYear.setText(String.valueOf( currentClaim.getEndDate().get(Calendar.YEAR)));  
-
+		
 		// set on click listener for done button
 		buttonEditClaimDone.setOnClickListener(new View.OnClickListener(){
 		@Override
 		public void onClick(View v) {
 				Intent intentDone = new Intent();
+				// null exception handler
+				String t1 = editTextEditClaimStartDateDay.getText().toString();
+				String t2 = editTextEditClaimStartDateMonth.getText().toString();
+				String t3 = editTextEditClaimStartDateYear.getText().toString();
+				String t4 = editTextEditClaimEndDateDay.getText().toString();
+				String t5 = editTextEditClaimEndDateMonth.getText().toString();
+				String t6 = editTextEditClaimEndDateYear.getText().toString();
+
+
+				if ((t1.equalsIgnoreCase(""))||(t2.equalsIgnoreCase(""))||(t3.equalsIgnoreCase(""))||(t4.equalsIgnoreCase(""))||(t5.equalsIgnoreCase(""))||(t6.equalsIgnoreCase(""))){
+		
+					Toast.makeText(getApplicationContext(), "Emput input", Toast.LENGTH_LONG).show();
+				
+			}
+		else{
 				
 				// get user input text
 				newClaimName = editTextEditClaimName.getText().toString();
@@ -178,7 +191,7 @@ import android.widget.Spinner;
 				intentDone.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				EditClaimActivity.this.startActivity(intentDone);
 				
-			}
+			}}
 		});
 		
 

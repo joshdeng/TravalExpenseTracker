@@ -9,31 +9,31 @@
 
 
 		<Button
-		    android:id="@+id/buttonEmailDialog"
+		    android:id="@+id/buttonApproveDialog"
 		    style="?android:attr/buttonStyle"
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_weight="1"
-		    android:text="@string/button_text_email" 
+		    android:text="@string/button_approve" 
 		    android:layout_margin="2dp"
 		    android:layout_marginBottom="1dp"
 		    android:background="@color/skyblue"
 		    android:textColor="@color/white"/>
 
 		<Button
-		    android:id="@+id/buttonEditClaimDialog"
+		    android:id="@+id/buttonReturnDialog"
 		    style="?android:attr/buttonStyle"
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_weight="1"
-		    android:text="@string/button_text_edit" 
+		    android:text="@string/button_return" 
 		    android:background="@color/skyblue"
 		    android:layout_margin="2dp"
 		    android:layout_marginBottom="1dp"
 		    android:textColor="@color/white"/>
 
 		<Button
-		    android:id="@+id/buttonRemoveClaimDialog"
+		    android:id="@+id/buttonRemoveClaimDialog2"
 		    style="?android:attr/buttonStyle"
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"

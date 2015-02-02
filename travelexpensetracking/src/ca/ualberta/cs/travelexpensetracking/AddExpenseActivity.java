@@ -24,6 +24,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class AddExpenseActivity extends Activity {
@@ -100,6 +101,19 @@ public class AddExpenseActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 					Intent intentDone = new Intent();
+					// null exception handler
+					String t1 = editTextExpenseDateDay.getText().toString();
+					String t2 = editTextExpenseDateMonth.getText().toString();
+					String t3 = editTextExpenseDateYear.getText().toString();
+					String t4 = editTextExpenseAmoutnSpend.getText().toString();
+
+
+					if ((t1.equalsIgnoreCase(""))||(t2.equalsIgnoreCase(""))||(t3.equalsIgnoreCase(""))||(t4.equalsIgnoreCase(""))){
+		
+						Toast.makeText(getApplicationContext(), "Emput input", Toast.LENGTH_LONG).show();
+					
+				}
+			else{
 					
 					// get user input text	
 					newExpenseName = editTextExpenseName.getText().toString();
@@ -141,7 +155,7 @@ public class AddExpenseActivity extends Activity {
 					intentDone.setClass(AddExpenseActivity.this,ClaimActivity.class);
 					AddExpenseActivity.this.startActivity(intentDone);
 					
-					
+			}
 			}
 			});
 		

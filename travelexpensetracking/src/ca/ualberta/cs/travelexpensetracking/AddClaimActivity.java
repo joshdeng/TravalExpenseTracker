@@ -27,6 +27,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class AddClaimActivity extends Activity {
 	
@@ -89,9 +90,7 @@ public class AddClaimActivity extends Activity {
 		// set spinner 
 		ArrayList<String> statusList = new ArrayList<String>();
 		statusList.add("In progress");
-		statusList.add("Submitted");
-		statusList.add("Returned");
-		statusList.add("Approved");
+
 		// set adapter
 		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_spinner_item,statusList);
 		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -119,52 +118,62 @@ public class AddClaimActivity extends Activity {
 		buttonNewClaimDone.setOnClickListener(new View.OnClickListener(){
 		@Override
 		public void onClick(View v) {
-				Intent intentDone = new Intent();
-				
-				// get user input text
-				newClaimName = editTextClaimName.getText().toString();
-				startDateDay = Integer.parseInt(editTextClaimStartDateDay.getText().toString());
-				startDateMonth = Integer.parseInt(editTextClaimStartDateMonth.getText().toString());
-				startDateYear = Integer.parseInt( editTextClaimStartDateYear.getText().toString());
-				endDateDay = Integer.parseInt(editTextClaimEndDateDay.getText().toString());
-				endDateMonth = Integer.parseInt( editTextClaimEndDateMonth.getText().toString());
-				endDateYear = Integer.parseInt( editTextClaimEndDateYear.getText().toString());
-				status = String.valueOf(spinnerStatus.getSelectedItem());
-				description = editTextClaimDescription.getText().toString();
-				// TODO: exception handle
-				
-				// TODO: status spinner 
-				
-				// create new claim with user input information
-				// set claim name
-				newClaim = new ClaimModel(newClaimName);
-				// set description
-				newClaim.setDescription(description);
-				// set start date
-				Calendar startDate = Calendar.getInstance();
-				startDate.set(startDateYear, startDateMonth, startDateDay);
-				newClaim.setStartDate(startDate);
-				// set end date
-				Calendar endDate = Calendar.getInstance();
-				endDate.set(endDateYear, endDateMonth, endDateDay);
-				newClaim.setEndDate(endDate);
-				
-				// set status
-				newClaim.setStatus(status);
-				// set description
-				newClaim.setDescription(description);
-				
-				// save the new claim into claim list
-				Claims.addClaim(newClaim);
-				
-				// save in file
-				saveInFile();
-				// jump to main activity
-				intentDone.setClass(AddClaimActivity.this,MainActivity.class);
-				intentDone.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				AddClaimActivity.this.startActivity(intentDone);
-				
+			// null exception handler
+				String t1 = editTextClaimStartDateDay.getText().toString();
+				String t2 = editTextClaimStartDateMonth.getText().toString();
+				String t3 = editTextClaimStartDateYear.getText().toString();
+				String t4 = editTextClaimEndDateDay.getText().toString();
+				String t5 = editTextClaimEndDateMonth.getText().toString();
+				String t6 = editTextClaimEndDateYear.getText().toString();
+				if ((t1.equalsIgnoreCase(""))||(t2.equalsIgnoreCase(""))||(t3.equalsIgnoreCase(""))||(t4.equalsIgnoreCase(""))||(t5.equalsIgnoreCase(""))||(t6.equalsIgnoreCase(""))){
+					Toast.makeText(getApplicationContext(), "Emput input", Toast.LENGTH_LONG).show();
 			}
+		else{
+			// create intent
+			Intent intentDone = new Intent();
+			// get user input text
+			newClaimName = editTextClaimName.getText().toString();
+			startDateDay = Integer.parseInt(editTextClaimStartDateDay.getText().toString());
+			startDateMonth = Integer.parseInt(editTextClaimStartDateMonth.getText().toString());
+			startDateYear = Integer.parseInt( editTextClaimStartDateYear.getText().toString());
+			endDateDay = Integer.parseInt(editTextClaimEndDateDay.getText().toString());
+			endDateMonth = Integer.parseInt( editTextClaimEndDateMonth.getText().toString());
+			endDateYear = Integer.parseInt( editTextClaimEndDateYear.getText().toString());
+			status = String.valueOf(spinnerStatus.getSelectedItem());
+			description = editTextClaimDescription.getText().toString();
+			// TODO: exception handle
+			
+			// create new claim with user input information
+			// set claim name
+			newClaim = new ClaimModel(newClaimName);
+			// set description
+			newClaim.setDescription(description);
+			// set start date
+			Calendar startDate = Calendar.getInstance();
+			startDate.set(startDateYear, startDateMonth, startDateDay);
+			newClaim.setStartDate(startDate);
+			// set end date
+			Calendar endDate = Calendar.getInstance();
+			endDate.set(endDateYear, endDateMonth, endDateDay);
+			newClaim.setEndDate(endDate);
+			
+			// set status
+			newClaim.setStatus(status);
+			// set description
+			newClaim.setDescription(description);
+			
+			// save the new claim into claim list
+			Claims.addClaim(newClaim);
+			
+			// save in file
+			saveInFile();
+			// jump to main activity
+			intentDone.setClass(AddClaimActivity.this,MainActivity.class);
+			intentDone.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			AddClaimActivity.this.startActivity(intentDone);
+			
+		}
+		}
 		});
 		
 

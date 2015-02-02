@@ -24,6 +24,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class EditExpenseActivity extends Activity {
@@ -105,8 +106,19 @@ public class EditExpenseActivity extends Activity {
 		buttonEditExpenseDone.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
+				
+				// null exception handler
+				String t1 = editTextEditExpenseDateDay.getText().toString();
+				String t2 = editTextEditExpenseDateMonth.getText().toString();
+				String t3 = editTextEditExpenseDateYear.getText().toString();
+				String t4 = editTextEditExpenseAmoutnSpend.getText().toString();
+				if ((t1.equalsIgnoreCase(""))||(t2.equalsIgnoreCase(""))||(t3.equalsIgnoreCase(""))||(t4.equalsIgnoreCase(""))){
+					Toast.makeText(getApplicationContext(), "Emput input", Toast.LENGTH_LONG).show();
+			       }
+				else{
+					// create intent
 					Intent intentDone = new Intent();
-					
+
 					// get user input text	
 					newExpenseName = editTextEditExpenseName.getText().toString();
 					category = editTextEditExpenseCategory.getText().toString();
@@ -135,10 +147,7 @@ public class EditExpenseActivity extends Activity {
 					currentExpense.setAmountSpent(amountSpend);
 					// add new expense
 					
-				
-		
-	
-				
+
 					// save claim id
 					intentDone.putExtra("claimID", claimIDstr);
 					// save in file
@@ -148,7 +157,7 @@ public class EditExpenseActivity extends Activity {
 					saveInFile();
 					intentDone.setClass(EditExpenseActivity.this,ClaimActivity.class);
 					EditExpenseActivity.this.startActivity(intentDone);
-					
+				}
 					
 			}
 			});

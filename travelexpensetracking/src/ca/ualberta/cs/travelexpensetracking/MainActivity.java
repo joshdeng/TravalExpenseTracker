@@ -35,6 +35,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -46,6 +47,11 @@ public class MainActivity extends Activity {
 	private ListView ClaimListView;
 	private int onLongClickPos;
 	private ClaimListAdapter claimListAdapter;
+	private Button buttonEmailClaimDialog ;
+	private Button buttonEditClaimDialog ;
+	private Button buttonRemoveClaimDialog;
+	private Button buttonApproveDialog;
+	private Button buttonReturnDialog;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -123,23 +129,99 @@ public class MainActivity extends Activity {
 		// 
 		ClaimListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
+			
+
 			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 				// save position
 				onLongClickPos = position;
+				// status checker
+				String status = Claims.getClaimList().get(onLongClickPos).getStatus();
+				// if status is submitted
+				if (status.equalsIgnoreCase("Submitted")){
+					
+					
+					final Dialog dialog2 = new Dialog(MainActivity.this);
+					dialog2.setContentView(R.layout.claim_dialog2);
+					// set title as claim name
+					dialog2.setTitle(Claims.getClaimList().get(position).getClaimName());
+					// get dialog content object
+					buttonApproveDialog = (Button) dialog2.findViewById(R.id.buttonApproveDialog);
+					buttonReturnDialog = (Button) dialog2.findViewById(R.id.buttonReturnDialog);
+					buttonRemoveClaimDialog = (Button) dialog2.findViewById(R.id.buttonRemoveClaimDialog2);
+					
+					dialog2.show();
+					
+					buttonRemoveClaimDialog.setOnClickListener(new View.OnClickListener() {	
+						@Override
+						public void onClick(View v) {
+							// save removed claim list
+							Claims.getClaimList().remove(onLongClickPos);
+							saveInFile();
+							// reload list view
+							claimListAdapter.clear();
+							Claims = loadFromFile();
+							// sort the claim list with custom comparator
+							Collections.sort(Claims.getClaimList(),new Comparator<ClaimModel>(){
+								public int compare(ClaimModel c1, ClaimModel c2) {
+									return c1.getStartDate().compareTo(c2.getStartDate());
+								}
+							});
+							
+							claimListAdapter.addAll(Claims.getClaimList());
+							claimListAdapter.notifyDataSetChanged();
+							// dismiss dialog
+							dialog2.dismiss();
+						  }
+						}
+						);
+						
+					// set status to approved
+					buttonApproveDialog.setOnClickListener(new View.OnClickListener() {	
+							@Override
+							public void onClick(View v) {
+								Claims.getClaimList().get(onLongClickPos).setStatus("Approved");
+								saveInFile();
+								claimListAdapter.clear();
+								Claims = loadFromFile();
+								claimListAdapter.addAll(Claims.getClaimList());
+								claimListAdapter.notifyDataSetChanged();
+								dialog2.dismiss();
+								}
+							  
+							}
+							);
+					// set status to returned
+					buttonReturnDialog.setOnClickListener(new View.OnClickListener() {	
+							@Override
+							public void onClick(View v) {
+								Claims.getClaimList().get(onLongClickPos).setStatus("Returned");
+								saveInFile();
+								claimListAdapter.clear();
+								Claims = loadFromFile();
+								claimListAdapter.addAll(Claims.getClaimList());
+								claimListAdapter.notifyDataSetChanged();
+								dialog2.dismiss();
+								}
+							  }
+							
+							);
+					
+				}
+				else{
 			    // create a dialog
-				final Dialog dialog = new Dialog(MainActivity.this);
-				dialog.setContentView(R.layout.claim_dialog);
+				final Dialog dialog1 = new Dialog(MainActivity.this);
+				dialog1.setContentView(R.layout.claim_dialog);
 				// set title as claim name
-				dialog.setTitle(Claims.getClaimList().get(position).getClaimName());
+				dialog1.setTitle(Claims.getClaimList().get(position).getClaimName());
 				// get dialog content object
-				Button buttonEmailClaimDialog = (Button) dialog.findViewById(R.id.buttonCancleEmailDialog);
-				Button buttonEditClaimDialog = (Button) dialog.findViewById(R.id.buttonEditClaimDialog);
-				Button buttonRemoveClaimDialog = (Button) dialog.findViewById(R.id.buttonRemoveClaimDialog);
-				dialog.show();
+				buttonEmailClaimDialog = (Button) dialog1.findViewById(R.id.buttonEmailDialog);
+				buttonEditClaimDialog = (Button) dialog1.findViewById(R.id.buttonEditClaimDialog);
+				buttonRemoveClaimDialog = (Button) dialog1.findViewById(R.id.buttonRemoveClaimDialog);
 				
 				
-				
+				dialog1.show();
+
 				buttonRemoveClaimDialog.setOnClickListener(new View.OnClickListener() {	
 				@Override
 				public void onClick(View v) {
@@ -159,7 +241,7 @@ public class MainActivity extends Activity {
 					claimListAdapter.addAll(Claims.getClaimList());
 					claimListAdapter.notifyDataSetChanged();
 					// dismiss dialog
-					dialog.dismiss();
+					dialog1.dismiss();
 				  }
 				}
 				);
@@ -168,30 +250,49 @@ public class MainActivity extends Activity {
 				buttonEmailClaimDialog.setOnClickListener(new View.OnClickListener() {	
 					@Override
 					public void onClick(View v) {
+						// check status
+						String status = Claims.getClaimList().get(onLongClickPos).getStatus();
+						// if item locked
+						if (status.equalsIgnoreCase("Approved")||status.equalsIgnoreCase("Submitted")){
+							Toast.makeText(getApplicationContext(), "Item Locked", Toast.LENGTH_LONG).show();
+							dialog1.dismiss();
+						}
+						else{
 						// create intent
+						
 						Intent intentEmail = new Intent();
 						// save claim id into tent
 						intentEmail.putExtra("claimID",String.valueOf(onLongClickPos));
 						// jump to email activity
 						intentEmail.setClass(MainActivity.this, EmailClaim.class);
 						MainActivity.this.startActivity(intentEmail);
-					  }
+						}}
+					  
 					}
 					);
 				
 				buttonEditClaimDialog.setOnClickListener(new View.OnClickListener() {	
 					@Override
 					public void onClick(View v) {
-						// create intent
+						// check status
+						String status = Claims.getClaimList().get(onLongClickPos).getStatus();
+						// if status is submitted
+						if (status.equalsIgnoreCase("Approved")||status.equalsIgnoreCase("Submitted")){
+							Toast.makeText(getApplicationContext(), "Item Locked", Toast.LENGTH_LONG).show();
+							dialog1.dismiss();
+						}
+						else{
 						Intent intentEdit = new Intent();
 						// save claim id into tent
 						intentEdit.putExtra("claimID",String.valueOf(onLongClickPos));
 						// jump to email activity
 						intentEdit.setClass(MainActivity.this, EditClaimActivity.class);
 						MainActivity.this.startActivity(intentEdit);
+						}
 					  }
 					}
 					);		
+				}
 				return true;
 		}});
 }

@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 
 public class EmailClaim extends Activity {
+	// declare variables
 	private ClaimListModel Claims ;
 	private ClaimModel currentClaim;
 	private String claimIDstr;
@@ -43,7 +44,7 @@ public class EmailClaim extends Activity {
 	private String test;
 	private ArrayList<ExpenseModel> expenseList;
 	private EditText editTextEmailAddress;
-	private Button buttonEmailCancle;
+	private Button buttonEmailCancel;
 	private Button buttonEmailDone;
 	private static final String FILENAME = "save.sav";
 	
@@ -60,7 +61,7 @@ public class EmailClaim extends Activity {
 		claimID = Integer.parseInt(claimIDstr);
 		// load widgets
 		editTextEmailAddress = (EditText)findViewById(R.id.editTextEmailAddress);
-		buttonEmailCancle = (Button)findViewById(R.id.buttonEmailCancle);
+		buttonEmailCancel = (Button)findViewById(R.id.buttonEmailCancle);
 		buttonEmailDone = (Button)findViewById(R.id.buttonEmailDone);
 		
 		
@@ -72,7 +73,6 @@ public class EmailClaim extends Activity {
 					emailIntent.setType("plain/text");
 					String[] recipients = {editTextEmailAddress.getText().toString()};
 					//set email intent
-					//emailIntent.setType("message/rfc822") ; // 
 					emailIntent.putExtra(Intent.EXTRA_EMAIL , recipients);   
 					emailIntent.putExtra(Intent.EXTRA_SUBJECT,"Travel Expense Claim: "+currentClaim.getClaimName());  
 					emailIntent.putExtra(Intent.EXTRA_TEXT,formatOutput());  
@@ -81,6 +81,8 @@ public class EmailClaim extends Activity {
 					} catch (android.content.ActivityNotFoundException ex) {
 					    Toast.makeText(EmailClaim.this, "Error: No email application installed!", Toast.LENGTH_SHORT).show();
 					}
+					// set claim status
+					currentClaim.setStatus("Submitted");
 					// save in file
 					saveInFile();
 				
@@ -88,8 +90,8 @@ public class EmailClaim extends Activity {
 				}
 			});
 		
-		
-		buttonEmailCancle.setOnClickListener(new View.OnClickListener(){
+		// set listener to cancel button
+		buttonEmailCancel.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
 				AlertDialog.Builder ADB = new AlertDialog.Builder(context);
