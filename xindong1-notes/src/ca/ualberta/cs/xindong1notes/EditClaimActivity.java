@@ -149,7 +149,7 @@ import android.widget.Toast;
 
 				if ((t1.equalsIgnoreCase(""))||(t2.equalsIgnoreCase(""))||(t3.equalsIgnoreCase(""))||(t4.equalsIgnoreCase(""))||(t5.equalsIgnoreCase(""))||(t6.equalsIgnoreCase(""))){
 		
-					Toast.makeText(getApplicationContext(), "Emput input", Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), "Empty input", Toast.LENGTH_LONG).show();
 				
 			}
 		else{

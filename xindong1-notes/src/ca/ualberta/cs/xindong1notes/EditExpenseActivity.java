@@ -123,7 +123,7 @@ public class EditExpenseActivity extends Activity {
 				String t3 = editTextEditExpenseDateYear.getText().toString();
 				String t4 = editTextEditExpenseAmoutnSpend.getText().toString();
 				if ((t1.equalsIgnoreCase(""))||(t2.equalsIgnoreCase(""))||(t3.equalsIgnoreCase(""))||(t4.equalsIgnoreCase(""))){
-					Toast.makeText(getApplicationContext(), "Emput input", Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), "Empty input", Toast.LENGTH_LONG).show();
 			       }
 				else{
 					// create intent
