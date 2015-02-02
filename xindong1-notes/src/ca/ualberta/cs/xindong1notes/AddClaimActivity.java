@@ -153,11 +153,11 @@ public class AddClaimActivity extends Activity {
 			newClaim.setDescription(description);
 			// set start date
 			Calendar startDate = Calendar.getInstance();
-			startDate.set(startDateYear, startDateMonth, startDateDay);
+			startDate.set(startDateYear, startDateMonth-1, startDateDay);
 			newClaim.setStartDate(startDate);
 			// set end date
 			Calendar endDate = Calendar.getInstance();
-			endDate.set(endDateYear, endDateMonth, endDateDay);
+			endDate.set(endDateYear, endDateMonth-1, endDateDay);
 			newClaim.setEndDate(endDate);
 			
 			// set status

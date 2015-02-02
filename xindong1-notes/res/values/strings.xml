@@ -45,6 +45,8 @@
     <string name="button_send">Send</string>
     <string name="button_return">Return</string>
     <string name="button_approve">Approve</string>
+    <string name="title_edit_claim">Edit Claim</string>
+    <string name="title_edit_expense">Edit Expense</string>
 
 
 </resources>

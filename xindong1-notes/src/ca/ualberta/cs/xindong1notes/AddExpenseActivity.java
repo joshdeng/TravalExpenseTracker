@@ -134,7 +134,7 @@ public class AddExpenseActivity extends Activity {
 					newExpense.setTextualDescription(description);
 					// set date
 					Calendar date = Calendar.getInstance();
-					date.set(dateYear, dateMonth, dateDay);
+					date.set(dateYear, dateMonth-1, dateDay);
 					newExpense.setDate(date);
 					// set category
 					newExpense.setCategory(category);

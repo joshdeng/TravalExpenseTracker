@@ -126,11 +126,11 @@ import android.widget.Toast;
 		// set date
 		
 		editTextEditClaimStartDateDay.setText( String.valueOf(currentClaim.getStartDate().get(Calendar.DATE)));
-		editTextEditClaimStartDateMonth.setText( String.valueOf(currentClaim.getStartDate().get(Calendar.MONTH)));
+		editTextEditClaimStartDateMonth.setText( String.valueOf(currentClaim.getStartDate().get(Calendar.MONTH)+1));
 		editTextEditClaimStartDateYear.setText( String.valueOf(currentClaim.getStartDate().get(Calendar.YEAR)));
 
 		editTextEditClaimEndDateDay.setText( String.valueOf(currentClaim.getEndDate().get(Calendar.DATE))); 
-		editTextEditClaimEndDateMonth.setText(String.valueOf( currentClaim.getEndDate().get(Calendar.MONTH))); 
+		editTextEditClaimEndDateMonth.setText(String.valueOf( currentClaim.getEndDate().get(Calendar.MONTH)+1)); 
 		editTextEditClaimEndDateYear.setText(String.valueOf( currentClaim.getEndDate().get(Calendar.YEAR)));  
 		
 		// set on click listener for done button
@@ -173,11 +173,11 @@ import android.widget.Toast;
 				currentClaim.setDescription(description);
 				// set start date
 				Calendar startDate = Calendar.getInstance();
-				startDate.set(startDateYear, startDateMonth, startDateDay);
+				startDate.set(startDateYear, startDateMonth-1, startDateDay);
 				currentClaim.setStartDate(startDate);
 				// set end date
 				Calendar endDate = Calendar.getInstance();
-				endDate.set(endDateYear, endDateMonth, endDateDay);
+				endDate.set(endDateYear, endDateMonth-1, endDateDay);
 				currentClaim.setEndDate(endDate);
 				
 				// set status

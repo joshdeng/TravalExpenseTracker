@@ -65,6 +65,7 @@ public class EditExpenseActivity extends Activity {
 	
 	private Button buttonEditExpenseCancle;
 	private Button buttonEditExpenseDone;
+
 	
 	
 	@Override
@@ -108,6 +109,9 @@ public class EditExpenseActivity extends Activity {
 		editTextEditExpenseAmoutnSpend.setText(String.valueOf(currentExpense.getAmountSpent()));
 		editTextEditExpenseUnitOfCurrency.setText(currentExpense.getUnitOfCurrency());
 		
+		editTextEditExpenseDateDay.setText(String.valueOf(currentExpense.getDate().get(Calendar.DATE)));
+		editTextEditExpenseDateMonth.setText(String.valueOf(currentExpense.getDate().get(Calendar.MONTH)+1));
+		editTextEditExpenseDateYear.setText(String.valueOf(currentExpense.getDate().get(Calendar.YEAR)));
 		// set on click listener for done button
 		buttonEditExpenseDone.setOnClickListener(new View.OnClickListener(){
 			@Override
@@ -143,7 +147,7 @@ public class EditExpenseActivity extends Activity {
 					currentExpense.setTextualDescription(description);
 					// set date
 					Calendar date = Calendar.getInstance();
-					date.set(dateYear, dateMonth, dateDay);
+					date.set(dateYear, dateMonth-1, dateDay);
 					currentExpense.setDate(date);
 					// set category
 					currentExpense.setCategory(category);

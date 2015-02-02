@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/new_claim"
+            android:text="@string/title_edit_claim"
             android:textColor="@color/white"
             android:textSize="35sp" />
 
